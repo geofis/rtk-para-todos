@@ -1,6 +1,11 @@
 ---
 title: "RTK para todos. Unidad GNSS de bajo costo basado en Raspberry Pi: primeros resultados y potenciales aplicaciones"
-output: revealjs::revealjs_presentation
+author: José Ramón Martínez Batlle <br> **UASD**
+  <br> joseramon@geografiafisica.org
+date: "XVIII Jornada de Investigación Científica, UASD <br> 12, 13 y 14 de noviembre, 2019 <br> Santo Domingo, República Dominicana"
+output:
+  revealjs::revealjs_presentation:
+    template: defaultmodificada.html
 bibliography: biblio.bib
 csl: apa.csl
 ---
@@ -9,9 +14,11 @@ csl: apa.csl
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
+
+
 ## Introducción
 
-* 
+*
 
 
 ## Referencias
