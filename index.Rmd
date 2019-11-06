@@ -1,0 +1,17 @@
+---
+title: "RTK para todos. Unidad GNSS de bajo costo basado en Raspberry Pi: primeros resultados y potenciales aplicaciones"
+output: revealjs::revealjs_presentation
+bibliography: biblio.bib
+csl: apa.csl
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Introducción
+
+* 
+
+
+## Referencias
