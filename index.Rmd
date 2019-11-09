@@ -17,7 +17,6 @@ editor_options:
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-
 ## Producción del último año
 <img src="img/durante-el-ultimo-ano.png"  height="100%" width="100%">
 
@@ -308,7 +307,7 @@ fixedsoldf %>%
   column_to_rownames('mode') %>% dist()
 ```
 
-<img src="img/map_context_06.png" height="90%" width="90%">
+<img src="img/map_context_06.png" height="80%" width="80%">
 
 ## Mediciones con cinta métrica
 
@@ -316,7 +315,7 @@ fixedsoldf %>%
 #                  Disassembled   Assembled Tripod + plummet
 # Assembled
 # Tripod + plummet
-# Tripod + pole
+# Tripod + pole                                        0.094
 ```
 
 ## Distribución de las observaciones
@@ -333,15 +332,15 @@ fixedsoldf %>%
 # Tripod + pole    0.0035 0.0051 0.011
 ```
 
-## Desviaciones diarias
+## Desviaciones estándar
 
-<img src="img/media_centrada_por_dia_barras_de_error.png" width="150%">
+<img src="img/media_centrada_por_dia_barras_de_error.png"  width="150%">
 
-# CONCLUSIONES Y PERSPECTIVAS
+# DISCUSIÓN Y PERSPECTIVAS
 
-## Conclusiones
+## Discusión
 
-* Los resultados obtenidos __son precisos__, con errores estándar bastante bajos, de orden milimétrico.
+* Los resultados obtenidos __son precisos__, con errores estándar bastante bajos, de orden centimétrico incluso milimétrico.
 
 * Mediciones con __cinta métrica__ confirmaron la precisión de las posiciones.
 
