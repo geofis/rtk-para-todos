@@ -9,6 +9,8 @@ output:
     transition: fade
 bibliography: biblio.bib
 csl: apa.csl
+editor_options: 
+  chunk_output_type: console
 ---
 
 ```{r setup, include=FALSE}
@@ -59,7 +61,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Trilateración
 
-* El posicionamiento se realiza por medio de **trilateración**, un método que utiliza la __distancia entre éste y varios puntos conocidos__, siendo estos últimos los satélites.
+* El posicionamiento se realiza por medio de **trilateración**, un método que utiliza la __distancia entre el punto de interés y varios puntos conocidos__, siendo estos últimos los satélites.
 
 * Dado que las coordenadas se generan para un espacio tridimensional, el proceso necesita de __al menos 4 satélites__.
 
@@ -77,7 +79,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 * La __estación base determina estas fuentes de error__ (puesto que conoce su propia posición), y las transmite al *rover* en tiempo real (de ahí el *RT* de las siglas) en forma de __correcciones__ para mejorar la posición.
 
-* La estación base también puede __colectar datos brutos sin transmitirlos__ al *rover*. Dicha información se utiliza posteriormente para __realizar posproceso__ (PPK) y corregir así las coordenadas colectadas por el rover.
+* La estación base también puede __colectar datos brutos sin transmitirlos__ al *rover*. Dicha información se utiliza posteriormente para __realizar posproceso__ (PPK) de datos brutos almacenados en el *rover* para corregirlos.
 
 ##
 
@@ -90,9 +92,7 @@ knitr::opts_chunk$set(echo = FALSE)
 <img src="img/efecto-tamano-baseline.png" width="100%">
 <span style="font-size:60%;">Tomado de @kubo2018gnss</span>
 
-# FABRICANTES DE RECEPTORES GNSS
-
-##
+## Fabricantes de receptores GNSS
 
 * SiRF, u-blox, Garmin, Hemisphere, Trimble, Leica, Topcon, NovAtel, JAVAD, Magellan, ...
 
@@ -102,9 +102,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ![](img/ublox-neo-m8t-csgshop.png)
 
-# APLICACIONES
-
-##
+## Aplicaciones
 
 * Mensura.
 
@@ -122,9 +120,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 * Deportes.
 
-# SOFTWARE DE CÓDIGO ABIERTO Y RECURSOS
-
-<!-- * La navegación cinética satelital (RTK-GNSS) es una técnica de posicionamiento global preciso que utiliza hardware y software de alto rendimiento. Hasta hace apenas 5 a 10 años, sólo un reducido número de fabricantes manufacturaba (y todavía manufactura) costosos equipos con firmware de código cerrado y bajo licencias privativas,  dirigidos principalmente al mercado profesional y corporativo. Con la publicación y actualización periódica de la biblioteca RTKLIB (primera versión, 2007), por Tomoji Takasu, se superó la principal limitación de software para generar soluciones RTK. Igualmente, la fabricación de procesadores pequeños y potentes, permitió llevar aplicaciones complejas a computadoras portátiles y de placa reducida. Además, la irrupción en el mercado de receptores GNSS de bajo coste impulsados por la industria automotriz, abarató significativamente la navegación RTK. En este estudio se presentan los resultados de soluciones fijas en modo estático generadas con RTKLIB en tiempo real y por posproceso utilizando como referencia la CORS de Santo Domingo, a partir de datos brutos colectados en el techo de un edificio de esta ciudad durante varios días en intervalos de 30 minutos, entre agosto y octubre de 2019. El equipo de colecta se compone de una Raspberry Pi, un receptor GNSS u-blox y dos antenas multi-constelación usadas en periodos separados. Tanto el software como el ensamblaje de hardware, fueron tomados del repositorio [*TouchRTKStation* de Taroz](https://github.com/taroz/TouchRTKStation). Los resultados muestran consistencia y precisión respecto de la estación de referencia, con error máximo del orden del centímetro. Se consideran potenciales aplicaciones para monitoreo de la deformación del terreno, así como para el estudio de fenómenos naturales como deslizamientos e inundaciones. -->
+# MATERIALES Y MÉTODOS
 
 ## RTKLIB
 
@@ -164,14 +160,46 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ![](img/rtklibexplorer.png)
 
-# EQUIPO DE COLECTA ENSAMBLADO
 
-## 
+## CORS RDSD
 
-| Parte | Precio |
-|:--:|:--:|
-| Raspberry Pi 3 B+ | |
+![](img/unavco_cors_rdsd.png)
 
+## Geomedición, Instrumentos y Sistemas
+
+![](img/cors_rdsd_geomedicion_instrumentos_y_sistemas.png)
+
+## Baseline
+
+![](img/baseline.png)
+
+## <span style="font-size:60%;">Partes adquiridas para equipo de colecta (Financiamiento: "SALARIO-CyT")</span>
+
+| Fecha       | Parte                                                             | Precio |
+|-------------|-------------------------------------------------------------------|-------:|
+| 7/jul/2019  | Raspberry Pi 3 B+                                                 |  US$38 |
+| 8/jul/2019  | u-blox NEO-M8T                                                    |  US$75 |
+| 16/jul/2019 | Pantalla táctil Waveshare 480x320                                 |  US$33 |
+| 17/ago/2019 | Atenna TOPGNSS (sustituyó antena u-blox)                          |  US$53 |
+| 18/ago/2019 | Impresión 3D de caja, [repo GitHub de Taroz](https://github.com/taroz/TouchRTKStation) |  US$37 |
+| 17/ago/2019 | 2 Baterías 8800mAh NP-F970 (Sony) con cargador                    |  US$38 |
+| 21/ago/2019 | Adaptador para batería, conversor a ~5V, cables                   |  US$28 |
+| 13/sep/2019 | Trípode                                                           |  US$45 |
+| 25/oct/2019 | Palo 2 m con nivel de burbuja                                     |  US$65 |
+|             | __Total sin ensamblar__                                           | __US$161__ |
+|             | __Total ensamblada__                                              | __US$302__ |
+|             | __Total ensamblada con trípode__                                  | __US$347__ |
+|             | __Total ensamblada con trípode y palo__                           | __US$412__ |
+
+## ¿Qué es una Raspberry Pi?
+
+* Raspberry Pi es un ordenador [computador] de placa reducida, ordenador de placa única u ordenador de placa simple (SBC) de bajo coste desarrollado en el Reino Unido por la Raspberry Pi Foundation, con el objetivo de estimular la enseñanza de informática en las escuelas.
+
+* El software es de código abierto, siendo su sistema operativo oficial una versión adaptada de Debian, denominada Raspbian, aunque permite usar otros sistemas operativos [@wiki2019raspberry].
+
+##
+
+![](img/rpi.png)
 
 ##
 
@@ -190,32 +218,158 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ![](rtk-ovni.jpg)
 
-# RESULTADOS
+##
 
-
+![](img/20191028_102223.jpg)
 
 ##
 
-![](img/gif-reducido.gif)
+![](img/20191012_181905.jpg)
 
+##
+
+![](img/20191102_100053_burbuja.jpg)
+
+## [rtk-r-wrappers](https://github.com/geofis/rtk-r-wrappers)
+
+![](img/rtk-r-wrappers.png)
+
+# RESULTADOS
+
+## Muestras
+
+* Se tomaron muestras con __cuatro configuraciones de equipamiento distintas__ en la medida que se adquiría nuevo equipamiento. Cada configuración corresponde a una posición distinta:
+
+    * Sin ensamblar.
+    * Unidad ensamblada.
+    * Trípode + plomada.
+    * Trípode + palo.
+
+* Se tomaron __muestras cada dos o tres días__ las distintas configuraciones.
+
+* Cada muestra se compone de colectas diarias de al menos __1500 épocas__ cada una.
+
+##
+
+* Se obtuvieron soluciones __fijas RTK__, pero se posprocesaron (__PPK__) los datos brutos usando la estación de referencia RDSD para mejorar la precisión.
+
+* Se analizaron sólo las __soluciones fijas__. 
+
+* Todo el proceso se realizó en __coordenadas ECEF__.
+
+##
+
+|Modo                                       |  Fechas     | N|              Foto                      |
+|:------------------------------------------|:-----------:|-:|:-------------------------------------: |
+|Sin ensamblar                              |1/ago-11/sep |36| ![](img/20190801_171036_peq.jpg)       |
+|Unidad ensamblada                          |12/sep-11/oct|23| ![](img/rtk-ovni_peq.jpg)              |
+|Trípode + plomada                          |12/oct-23-oct| 6| ![](img/20191012_181905_peq.jpg)       |
+|Trípode + palo                             |31/oct-  -   |>5|![](img/20191102_100053_burbuja_peq.jpg)|
+
+
+## Muestras en detalle. Soluciones fijas
+
+![](img/gif-muestras-diarias.gif)
+
+##
+
+![](img/map_disassembled.png)
+
+##
+
+![](img/map_assembled.png)
+
+##
+
+![](img/map_tripod_plummet.png)
+
+##
+
+![](img/map_tripod_pole.png)
+
+## 
+
+![](img/gif-muestras-promediadas.gif)
+
+## Distancias planimétricas
+
+```{r, echo = FALSE, warning=FALSE, message=FALSE}
+require(sf)
+require(tidyverse)
+fixedsol_m_sf <- st_read('data/trabajo02_promedio_posiciones.gpkg', quiet=T)
+names(fixedsol_m_sf)[3] <- 'geometry'
+fixedsoldf <- fixedsol_m_sf %>%
+  mutate(X=unlist(map(fixedsol_m_sf$geometry,1)), Y=unlist(map(fixedsol_m_sf$geometry,2))) %>%
+  st_drop_geometry() %>% dplyr::select(mode, X,Y) %>% 
+  as.data.frame()
+fixedsoldf %>%
+  as.data.frame() %>%
+  remove_rownames %>%
+  column_to_rownames('mode') %>% dist()
+```
+
+<img src="img/map_context_06.png" height="90%" width="90%">
+
+## Mediciones con cinta métrica
+
+```{r, echo=T}
+#                  Disassembled   Assembled Tripod + plummet
+# Assembled
+# Tripod + plummet
+# Tripod + pole
+```
+
+## Distribución de las observaciones
+
+<img src="img/qqnorms.png" width="150%">
+
+## Errores estándar por medio de *bootstrap*
+
+```{r, echo = T}
+# mode                  X      Y     Z
+# Disassembled     0.0010 0.0011 0.002
+# Assembled        0.0006 0.0009 0.006
+# Tripod + plummet 0.0046 0.0054    NA
+# Tripod + pole    0.0035 0.0051 0.011
+```
+
+## Desviaciones diarias
+
+<img src="img/media_centrada_por_dia_barras_de_error.png" width="150%">
 
 # CONCLUSIONES Y PERSPECTIVAS
 
 ## Conclusiones
 
+* Los resultados obtenidos __son precisos__, con errores estándar bastante bajos, de orden milimétrico.
 
+* Mediciones con __cinta métrica__ confirmaron la precisión de las posiciones.
+
+* Se necesita mediciones con __equipamiento alterno__ para evaluar exactitud, aunque los resultados preliminares son prometedores.
+
+* Las aplicaciones para __monitoreo de movimiento de la estructura__ (por ejemplo,  por subsidencia), al menos para desplazamientos orden centimétrico, son perfectamente viables.
+
+## DInSAR 2016-2018
+
+<img src="img/insar_2016_2018_displacement.png" width="150%">
+
+## Análisis temporal de la componente vertical de la CORS RDSD
+
+<img src="img/descomposicion_y_gam.png" width="150%">
 
 ## Perspectivas
 
-* Precise point positioning (__PPP__).
+* Realizar Precise point positioning (__PPP__).
 
-* Configuración de segundo receptor para el __tandem *base*+*rover*__, con TX/RX de correcciones por radiofrecuencia
+* Configurar un segundo receptor para el __tandem *base*+*rover*__, con TX/RX de correcciones por radiofrecuencia
 
-* Monitoreo de __deslizamientos__.
+* Monitorear de __deslizamientos__.
 
-* Modelización de la __granulometría de carga gruesa__ superficial mediante UAV.
+* Modelizar de la __granulometría de carga gruesa__ superficial mediante UAV.
 
-* Monitoreo de __subsidencia__.
+* Monitorear __subsidencia__.
+
+* Armar unidad __multibanda__.
 
 # REFERENCIAS
 
