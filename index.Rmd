@@ -365,9 +365,9 @@ fixedsoldf %>%
 
 * Monitorear de __deslizamientos__.
 
-* Modelizar de la __granulometría de carga gruesa__ superficial mediante UAV.
+* Modelizar __granulometría de carga gruesa__ superficial mediante UAV.
 
-* Monitorear __subsidencia__.
+* Monitorear __subsidencia__ urbana.
 
 * Armar unidad __multibanda__.
 
