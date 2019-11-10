@@ -29,7 +29,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ##
 
-* Siglas de *real-time kinematic*, es una técnica de __navegación satelital global__, que utiliza la __fase de la onda portadora__ (a diferencia de la técnica convencional, basada códigos pseudoaleatorios de baja frecuencia) enviada por satélites de posicionamiento global, tales como GPS, GLONASS, Galileo y BeiDou, para calcular, con __precisión centimétrica__, la distancia entre una estación base de coordenadas conocidas y una estación exploradora o *rover*.
+* Siglas de *real-time kinematic*, es una técnica de __navegación satelital global__, que utiliza la __fase de la onda portadora__ (a diferencia de la técnica convencional, basada códigos pseudoaleatorios de baja frecuencia) enviada por satélites de posicionamiento, tales como GPS, GLONASS, Galileo y BeiDou, para calcular, con __precisión centimétrica__, la distancia entre una estación base de coordenadas conocidas y una estación exploradora o *rover*.
 
 ## Comparación entre técnica estándar y basada en onda portadora
 
@@ -309,7 +309,7 @@ fixedsoldf %>%
 
 <img src="img/map_context_06.png" height="80%" width="80%">
 
-## Mediciones con cinta métrica
+## Mediciones planimétricas con cinta métrica
 
 ```{r, echo=T}
 #                  Disassembled   Assembled Tripod + plummet
@@ -317,6 +317,7 @@ fixedsoldf %>%
 # Tripod + plummet
 # Tripod + pole                                        0.094
 ```
+<img src="img/distancia-planimetrica-plummet-pole.jpg" width="60%">
 
 ## Distribución de las observaciones
 
