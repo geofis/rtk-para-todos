@@ -2,7 +2,7 @@
 title: "RTK para todos. Unidad GNSS de bajo costo basado en Raspberry Pi: primeros resultados y potenciales aplicaciones"
 author: José Ramón Martínez Batlle, UASD
   <br> joseramon@geografiafisica.org
-date: "XVIII Jornada de Investigación Científica, UASD <br> 12, 13 y 14 de noviembre, 2019 <br> Santo Domingo, República Dominicana"
+date: "XVIII Jornada de Investigación Científica, UASD <br> 12, 13 y 14 de noviembre, 2019 <br> Santo Domingo, República Dominicana <br> https://geofis.github.io/rtk-para-todos/"
 output:
   revealjs::revealjs_presentation:
     template: defaultmodificada.html
@@ -25,11 +25,11 @@ knitr::opts_chunk$set(echo = FALSE)
 |<span style="font-size:60%;">[Clusters of high abundance of plants detected from local indicators of spatial association (LISA) in a semi-deciduous tropical forest](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0208780)</span> |<span style="font-size:60%;">[Drainage Rearrangement as a Driver of Geomorphological Evolution During the Upper Pleistocene in a Small Tropical Basin](http://www.ccsenet.org/journal/index.php/jgg/article/view/0/39703)|</span>|
 
 
-# ¿Qué es RTK?
+# ¿QUÉ ES RTK?
 
 ##
 
-* Siglas de *real-time kinematic*, es una técnica de __navegación satelital global__, que utiliza la __fase de la onda portadora__ (a diferencia de la técnica convencional, basada códigos pseudoaleatorios de baja frecuencia) enviada por satélites de posicionamiento, tales como GPS, GLONASS, Galileo y BeiDou, para calcular, con __precisión centimétrica__, la distancia entre una estación base de coordenadas conocidas y una estación exploradora o *rover*.
+* Siglas de *real-time kinematic*, es una técnica de __navegación satelital global__, que utiliza la __fase de la onda portadora__ (a diferencia de la técnica convencional, basada en códigos pseudoaleatorios de baja frecuencia) enviada por satélites de posicionamiento, tales como GPS, GLONASS, Galileo y BeiDou, para calcular, con __precisión centimétrica__, la distancia entre una estación base de coordenadas conocidas y una estación exploradora o *rover*.
 
 ## Comparación entre técnica estándar y basada en onda portadora
 
@@ -82,7 +82,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ##
 
-* Para garantizar una coordenada precisa entre el *rover* y la estación base, __la distancia entre ellos no debe ser muy grande__ (se sugieren valores máximos de 10-30 km, pero en algunos casos esta exigencia no puede satisfacerse), puesto que se requiere que ambos __compartan las mismas fuentes de error de ámbito regional__.
+* Para garantizar que el *rover* de una precisa, __la distancia entre éste y la estación base (*baseline*) no debe ser muy grande__, puesto que se requiere que ambos __compartan las mismas fuentes de error de ámbito regional__. Se sugieren valores máximos de 10-30 km, aunque en algunos casos esta exigencia no puede satisfacerse.
 
 * Las __fuentes de error globales__, aunque introducen sesgos importantes, no son usadas para establecer una distancia óptima entre el *rover* y la base.
 
@@ -192,9 +192,9 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## ¿Qué es una Raspberry Pi?
 
-* Raspberry Pi es un ordenador [computador] de placa reducida, ordenador de placa única u ordenador de placa simple (SBC) de bajo coste desarrollado en el Reino Unido por la Raspberry Pi Foundation, con el objetivo de estimular la enseñanza de informática en las escuelas.
+* Es un ordenador [computador] de placa reducida, ordenador de placa única u __ordenador de placa simple (SBC) de bajo coste__ desarrollado en el Reino Unido por la Raspberry Pi Foundation, con el objetivo de estimular la enseñanza de informática en las escuelas.
 
-* El software es de código abierto, siendo su sistema operativo oficial una versión adaptada de Debian, denominada Raspbian, aunque permite usar otros sistemas operativos [@wiki2019raspberry].
+* El __software es de código abierto__, siendo su sistema operativo oficial una __versión adaptada de Debian, denominada Raspbian__, aunque permite usar otros sistemas operativos [@wiki2019raspberry].
 
 ##
 
@@ -345,17 +345,21 @@ fixedsoldf %>%
 
 * Mediciones con __cinta métrica__ confirmaron la precisión de las posiciones.
 
-* Se necesita mediciones con __equipamiento alterno__ para evaluar exactitud, aunque los resultados preliminares son prometedores.
+* Se necesitan mediciones con __equipamiento alterno__ para evaluar exactitud, aunque los resultados preliminares son prometedores.
 
-* Las aplicaciones para __monitoreo de movimiento de la estructura__ (por ejemplo,  por subsidencia), al menos para desplazamientos orden centimétrico, son perfectamente viables.
+* Las aplicaciones para __monitoreo de movimiento de la estructura__ (por ejemplo,  por subsidencia), al menos para desplazamientos de desarrollo lento y de __orden centimétrico__, son perfectamente viables.
 
 ## DInSAR 2016-2018
 
 <img src="img/insar_2016_2018_displacement.png" width="150%">
+Verde: ~10-20 mm de subsidencia <br>
+Rojo: ~10-30 mm de elevación
 
-## Análisis temporal de la componente vertical de la CORS RDSD
+## Componente vertical CORS RDSD
 
 <img src="img/descomposicion_y_gam.png" width="150%">
+Izquierda, GAM. Derecha: Descomposición serie temporal <br>
+Subsidencia capturada en ambos análisis
 
 ## Perspectivas
 
