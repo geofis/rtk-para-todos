@@ -1,7 +1,7 @@
 ---
 title: "RTK para todos. Unidad GNSS de bajo costo basado en Raspberry Pi: primeros resultados y potenciales aplicaciones"
-author: José Ramón Martínez Batlle, UASD
-  <br> joseramon@geografiafisica.org
+author: José Ramón Martínez Batlle
+  # <br> joseramon@geografiafisica.org
 date: "XVIII Jornada de Investigación Científica, UASD <br> 12, 13 y 14 de noviembre, 2019 <br> Santo Domingo, República Dominicana <br> https://geofis.github.io/rtk-para-todos/"
 output:
   revealjs::revealjs_presentation:
