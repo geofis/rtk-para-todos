@@ -315,12 +315,12 @@ fixedsoldf %>%
 ## Mediciones planimétricas con cinta métrica
 
 ```{r, echo=T}
-#                  Disassembled   Assembled Tripod + plummet
+#                  Disassembled   Assembled   Tripod + plummet
 # Assembled
 # Tripod + plummet
-# Tripod + pole                                        0.094
+# Tripod + pole           5.854                          0.095
 ```
-<img src="img/distancia-planimetrica-plummet-pole.jpg" width="60%">
+<img src="img/distancia-planimetrica-plummet-pole.jpg" width="100%">
 
 ## Distribución de las observaciones
 
