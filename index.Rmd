@@ -192,11 +192,14 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## ¿Qué es una Raspberry Pi?
 
-* Es un ordenador [computador] de placa reducida, ordenador de placa única u __ordenador de placa simple (SBC) de bajo coste__ desarrollado en el Reino Unido por la Raspberry Pi Foundation, con el objetivo de estimular la enseñanza de informática en las escuelas.
+* Es un ordenador [computador] de placa reducida, ordenador de placa única u __ordenador de placa simple (SBC) de bajo coste__ (~US$35 la 3 B+, tamaño tarjeta de crédito) desarrollado en el Reino Unido por la Raspberry Pi Foundation, con el objetivo de estimular la enseñanza de informática en las escuelas.
 
 * El __software es de código abierto__, siendo su sistema operativo oficial una __versión adaptada de Debian, denominada Raspbian__, aunque permite usar otros sistemas operativos [@wiki2019raspberry].
 
 ##
+
+* Se conocen múltiples aplicaciones, como PC de escritorio, *media center*, vídeo-vigilancia, domótica, configuración de VPN, servidor web, de archivos, de impresión, de juegos, sismógrafo, GNSS, entre otras.
+
 
 ![](img/rpi.png)
 
