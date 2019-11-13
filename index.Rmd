@@ -58,6 +58,8 @@ knitr::opts_chunk$set(echo = FALSE)
 
 * La __exactitud__ de la coordenada calculada en el *rover* ("veracidad" si se refiere a grupo coordenadas), dependerá de la exactitud de la coordenada estación base. Si la coordenada de la __base es exacta__, también __lo será la del *rover*__.
 
+## ![](img/comparacion_single_fix.png)
+
 ## Trilateración
 
 * El posicionamiento se realiza por medio de **trilateración**, un método que utiliza la __distancia entre el punto de interés y varios puntos conocidos__, siendo estos últimos los satélites.
@@ -82,7 +84,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ##
 
-* Para garantizar que el *rover* de una precisa, __la distancia entre éste y la estación base (*baseline*) no debe ser muy grande__, puesto que se requiere que ambos __compartan las mismas fuentes de error de ámbito regional__. Se sugieren valores máximos de 10-30 km, aunque en algunos casos esta exigencia no puede satisfacerse.
+* Para garantizar que el *rover* dé una coordenada una precisa, __la distancia entre éste y la estación base (*baseline*) no debe ser muy grande__, puesto que se requiere que ambos __compartan las mismas fuentes de error de ámbito regional__. Se sugieren valores máximos de 10-30 km, aunque en algunos casos esta exigencia no puede satisfacerse.
 
 * Las __fuentes de error globales__, aunque introducen sesgos importantes, no son usadas para establecer una distancia óptima entre el *rover* y la base.
 
