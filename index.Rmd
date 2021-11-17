@@ -1,15 +1,17 @@
 ---
-title: "RTK para todos. Unidad GNSS de bajo costo basado en Raspberry Pi: primeros resultados y potenciales aplicaciones"
+title: Revisitando RTK para todos. Sistema base-rover GNSS-RTK multibanda y multiconstelación de bajo costo
 author: José Ramón Martínez Batlle
-  # <br> joseramon@geografiafisica.org
-date: "XVIII Jornada de Investigación Científica, UASD <br> 12, 13 y 14 de noviembre, 2019 <br> Santo Domingo, República Dominicana <br> https://geofis.github.io/rtk-para-todos/"
+date: XX Jornada de Investigación Científica, UASD <br> 16, 17 y 18 de noviembre, 2021 <br> Santo Domingo, República Dominicana <br> https://geofis.github.io/rtk-para-todos/
 output:
   revealjs::revealjs_presentation:
-    template: defaultmodificada.html
+    title-slide-attributes:
+      data-background-image: img/fondo.jpg
+      data-background-size: cover
+    # template: defaultmodificada.html
     transition: fade
 bibliography: biblio.bib
 csl: apa.csl
-editor_options: 
+editor_options:
   chunk_output_type: console
 ---
 
@@ -17,48 +19,44 @@ editor_options:
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-## Producción del último año
-<img src="img/durante-el-ultimo-ano.png"  height="100%" width="100%">
+# INTRODUCCIÓN: ¿QUÉ ES RTK? APLICACIONES, LIMITACIONES
 
-|   |   |
-|---|---|
-|<span style="font-size:60%;">[Clusters of high abundance of plants detected from local indicators of spatial association (LISA) in a semi-deciduous tropical forest](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0208780)</span> |<span style="font-size:60%;">[Drainage Rearrangement as a Driver of Geomorphological Evolution During the Upper Pleistocene in a Small Tropical Basin](http://www.ccsenet.org/journal/index.php/jgg/article/view/0/39703)|</span>|
+## Naturaleza
 
+- Esta presentación muestra el desarrollo de un proyecto de __construcción/experimentación con tecnología GNSS-RTK__.
 
-# ¿QUÉ ES RTK?
+- Se trata de un proyecto autofinanciado, que constituye un __soporte esencial__ para otras múltiple investigaciones en marcha.
 
-##
+- Por lo tanto, su importancia radica en su capacidad de soportar __múltiples aplicaciones en geografía (entre otras áreas) a bajísimo costo y con soluciones libres, SIN SOFTWARE PRIVATIVO NI HARDWARE COSTOSO.__
+
+## RTK
 
 * Siglas de *real-time kinematic*, es una técnica de __navegación satelital global__, que utiliza la __fase de la onda portadora__ (a diferencia de la técnica convencional, basada en códigos pseudoaleatorios de baja frecuencia) enviada por satélites de posicionamiento, tales como GPS, GLONASS, Galileo y BeiDou, para calcular, con __precisión centimétrica__, la distancia entre una estación base de coordenadas conocidas y una estación exploradora o *rover*.
 
 ## Comparación entre técnica estándar y basada en onda portadora
 
+
 |     |     |     |
 |:---:|:---:|:---:|
 |     | Basada en códigos pseudoaleatorios (estándar) | Posicionamiento preciso (basada en onda portadora) |
 | Observaciones | Pseudorango (de códigos)| Onda portadora + pseudorango |
-| Precio de receptor | Baratos, ~US\$100 | __Muy caros ~US\$20,000-30,000__ |
+| Precio de receptor | Baratos, ~US\$100 | __Muy caros ~US\$10,000-40,000__ |
 | Exactitud | 3 m (H), 5 m (V) | __5 mm (H) 1 cm (V) (modo estático)__ |
-| Aplicaciones | Navegación marítima, búsqueda y rescate | Mensura, cartografía de alta precisión |
+| Aplicaciones | Navegación marítima, búsqueda y rescate | Topografía, mensura, cartografía de alta precisión |
+<small>Los costos son para equipos funcionales listos para usarse, "apenas sacados de su empaque"</small>
 
-
-## Precisión, exactitud y veracidad
+## Precisión, exactitud
 
 <img src="img/precision-exactitud-revista-emedida.jpg" width="100%">|
 <span style="font-size:60%;">Tomado de @prieto2018precision</span>
-
-##
-
-<img src="img/exactitud-precision-veracidad.png" width="200%">
-<span style="font-size:60%;">Tomado de @wiki2019accuracy</span>
 
 ## Precisión y exactitud del *rover*
 
 * La __precisión__ de la coordenada del *rover* respecto de la base es centimétrica.
 
-* La __exactitud__ de la coordenada calculada en el *rover* ("veracidad" si se refiere a grupo coordenadas), dependerá de la exactitud de la coordenada estación base. Si la coordenada de la __base es exacta__, también __lo será la del *rover*__.
+* La __exactitud__ de la coordenada calculada en el *rover*, dependerá de la exactitud de la coordenada estación base. Si la coordenada de la __base es exacta__, también __lo será la del *rover*__.
 
-## ![](img/comparacion_single_fix.png)
+<!-- ## ![](img/comparacion_single_fix.png) -->
 
 ## Trilateración
 
@@ -70,58 +68,117 @@ knitr::opts_chunk$set(echo = FALSE)
 <span style="font-size:60%;">Tomado de @gisgeography2019trilateration</span>
 
 
-## Algoritmo (no, ese no)
+## Algoritmo
 
-* El __algoritmo__ (sí, sí, esta palabra existía antes de los políticos) empleado para obtener el resultado preciso se centra en la **resolución de la ambigüedad del número entero**, es decir, el número de ciclos completos que caben entre el receptor y el satélite. Existen __varias estrategias__ para ello, pero lo importante es que se consiga una __convergencia rápida de la solución__. Cuando se conoce el número de ciclos, basta con multiplicarlo por la longitud de onda (19 cm) para obtener el pseudorango.
-
-##
+* El __algoritmo__ empleado para obtener un resultado preciso se centra en la **resolución de la ambigüedad del entero**, es decir, el número de ciclos completos que caben entre el receptor y el satélite. Existen __varias estrategias__ para ello, pero lo importante es que se consiga una __convergencia rápida de la solución__. Cuando se conoce el número de ciclos, basta con multiplicarlo por la longitud de onda (19 cm) para obtener el pseudorango.
 
 * El __pseudorango es una distancia imprecisa__, porque está afectada por __fuentes de error de ámbito local/regional__ (retardo ionosférico y troposférico) __y otros__ (sesgo por geometría de constelación, por multitrayecto, por relojes del satélite y del receptor).
+
+## Algoritmo
 
 * La __estación base determina estas fuentes de error__ (puesto que conoce su propia posición), y las transmite al *rover* en tiempo real (de ahí el *RT* de las siglas) en forma de __correcciones__ para mejorar la posición.
 
 * La estación base también puede __colectar datos brutos sin transmitirlos__ al *rover*. Dicha información se utiliza posteriormente para __realizar posproceso__ (PPK) de datos brutos almacenados en el *rover* para corregirlos.
 
-##
+## Algoritmo
 
-* Para garantizar que el *rover* dé una coordenada una precisa, __la distancia entre éste y la estación base (*baseline*) no debe ser muy grande__, puesto que se requiere que ambos __compartan las mismas fuentes de error de ámbito regional__. Se sugieren valores máximos de 10-30 km, aunque en algunos casos esta exigencia no puede satisfacerse.
+* Para garantizar que el *rover* dé una coordenada una precisa, __la distancia entre éste y la estación base (*baseline*) no debe ser muy grande__, puesto que se requiere que ambos __compartan las mismas fuentes de error de ámbito regional__. Se sugieren valores máximos de 30-50 km en multibanda, aunque en algunos casos esta exigencia no puede satisfacerse.
 
 * Las __fuentes de error globales__, aunque introducen sesgos importantes, no son usadas para establecer una distancia óptima entre el *rover* y la base.
 
-##
+<!-- ## Algoritmo -->
 
-<img src="img/efecto-tamano-baseline.png" width="100%">
-<span style="font-size:60%;">Tomado de @kubo2018gnss</span>
+<!-- <img src="img/efecto-tamano-baseline.png" width="100%"> -->
+<!-- <span style="font-size:60%;">Tomado de @kubo2018gnss</span> -->
 
-## Fabricantes de receptores GNSS
+## Fabricantes de receptores GNSS con capacidad RTK
 
-* SiRF, u-blox, Garmin, Hemisphere, Trimble, Leica, Topcon, NovAtel, JAVAD, Magellan, ...
+- Trimble, Leica, Topcon, NovAtel, JAVAD, ...
 
-![](img/trimble-used.png)
+- u-blox, Septentrio, Skytraq, ComNav Technology ...
 
-##
+## ![](img/trimble-used.png){width=85%}
 
-![](img/ublox-neo-m8t-csgshop.png)
+## ![](img/ardusimple-mouser.jpg)
 
 ## Aplicaciones
 
+* Monitoreo de __deslizamientos, fallas__.
+
 * Mensura.
 
-* Fotogrametría con UAV.
+* Fotogrametría con __UAV__.
 
-* Construcción, monitoreo de edificaciones y estructuras (puentes)
+* Construcción, monitoreo de __edificaciones y estructuras__ (puentes)
 
-* Agricultura de precisión.
+* __Agricultura__ de precisión.
 
-* Detección de tsunamis por boyas GNSS.
+* Detección de __tsunamis__ por boyas GNSS.
 
-* Sistemas de transporte inteligentes, vehículos autónomos.
+* Sistemas de __transporte__, vehículos autónomos.
 
-* Sistemas de cartografía móviles (Street View).
+* Sistemas de cartografía __móviles__ (Street View).
 
-* Deportes.
+## Limitaciones globales
+
+- Alto __costo de equipos__ listos para usar.
+
+- Red de CORS pública de __poca densidad__.
+
+- __Redes privadas__ existentes y densas, aunque de __costos__ elevados.
+
+- Predominio de __soluciones__ de software y hardware __cerradas__.
+
+## ¿Por qué estoy "revisitando" este proyecto?
+
+- En __2018__ construí una solución monobanda.
+
+- Dicha solución, aunque útil para determinadas aplicaciones, fallaba en determinados ambientes para __converger eficientemente__ (AR).
+
+![](img/mosaico-evolucion-monobanda.jpg)
+
+## ¿Por qué estoy "revisitando" este proyecto?
+
+- Desde entonces me concentré en:
+
+    - Constuir una __solución integral__, que incluyera __base y rover ambos de doble frecuencia__.
+    
+    - Basándome en RTKLIB, crear el __scripts de operación básicos__, así como mejorar/adaptar software de terceros.
 
 # MATERIALES Y MÉTODOS
+
+## Hardware
+
+## ![](img/armando-hardware.jpg)
+
+## ![](img/diagrama.png)
+
+## ![](img/IMG_20211008_181425.jpg)
+
+## ![](img/IMG_20211104_203437.jpg)
+
+## ![](img/20211009_150705.jpg)
+
+## <span style="font-size:60%;">Partes adquiridas para equipo de colecta (Financiamiento: "SALARIO-CyT")</span>
+
+| Parte                                                                         | Costo aprox.|
+|-------------------------------------------------------------------------------|------------:|
+| Base o rover, los imprescindibles: receptor, RPi, antena.                     |    US$340   |
+| Adaptador de corriente, palo, trípode, conectores, cables, carcasa, batería   |    US$240   |
+
+<section style="font-size:60%;text-align: left;">
+
+- No se incluyen fletes.
+
+- Para una base fija tipo CORS, se deben añadir los costes del __soporte de hierro__ (~US$40) y __el cable__ (el valor dependerá del calibre elegido y la longitud del mismo). Otros complementos deseables son un __tribrach__ (base nivelante), __protección contra rayos__ y una estación meteorológica.
+</section>
+
+## ¿Qué es una Raspberry Pi?
+
+![](img/rpi.png){width=35%}
+![](img/rpi-zero-2-w.jpg){width=35%}
+
+## Software
 
 ## RTKLIB
 
@@ -137,248 +194,91 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ![](img/rtklib-rotulos.png)
 
-
-## TouchRTKStation
-
-* [*TouchRTKStation* de Taroz](https://github.com/taroz/TouchRTKStation) [@taroz2019touchrtkstation]
-
-<img src="img/taroz-touchrstation-github.png"  height="100%" width="45%">
-
-## RTKLIB Touchscreen GUI
-
-![](img/rtklib-touchscreen-gui.png)
+## BashRTKStation
 
 
-## rtkexplorer
 
-* El website [rtkexplorer](http://rtkexplorer.com/) es un blog de iniciación en la tecnología RTK de bajo costo [@everett2019rtkexplorer]
+## RTKBase
 
-![](img/rtkexplorer.png)
+## ![](img/centipede.jpg)
 
-## rtklibexplorer
-
-* El blog [rtklibexplorer](https://rtklibexplorer.wordpress.com/) documenta proyectos RTK en profundidad [@everett2019rtklibexplorer]
-
-![](img/rtklibexplorer.png)
+## RTKMisc
 
 
-## CORS RDSD
-
-![](img/unavco_cors_rdsd.png)
-
-## Geomedición, Instrumentos y Sistemas
-
-![](img/cors_rdsd_geomedicion_instrumentos_y_sistemas.png)
-
-## Baseline
-
-![](img/baseline.png)
-
-## <span style="font-size:60%;">Partes adquiridas para equipo de colecta (Financiamiento: "SALARIO-CyT")</span>
-
-| Fecha       | Parte                                                             | Precio |
-|-------------|-------------------------------------------------------------------|-------:|
-| 7/jul/2019  | Raspberry Pi 3 B+                                                 |  US$38 |
-| 8/jul/2019  | u-blox NEO-M8T                                                    |  US$75 |
-| 16/jul/2019 | Pantalla táctil Waveshare 480x320                                 |  US$33 |
-| 17/ago/2019 | Atenna TOPGNSS (sustituyó antena u-blox)                          |  US$53 |
-| 18/ago/2019 | Impresión 3D de caja, [repo GitHub de Taroz](https://github.com/taroz/TouchRTKStation) |  US$37 |
-| 17/ago/2019 | 2 Baterías 8800mAh NP-F970 (Sony) con cargador                    |  US$38 |
-| 21/ago/2019 | Adaptador para batería, conversor a ~5V, cables                   |  US$28 |
-| 13/sep/2019 | Trípode                                                           |  US$45 |
-| 25/oct/2019 | Palo 2 m con nivel de burbuja                                     |  US$65 |
-|             | __Total sin ensamblar__                                           | __US$161__ |
-|             | __Total ensamblada__                                              | __US$302__ |
-|             | __Total ensamblada con trípode__                                  | __US$347__ |
-|             | __Total ensamblada con trípode y palo__                           | __US$412__ |
-
-## ¿Qué es una Raspberry Pi?
-
-* Es un ordenador [computador] de placa reducida, ordenador de placa única u __ordenador de placa simple (SBC) de bajo coste__ (~US$35 la 3 B+, tamaño tarjeta de crédito) desarrollado en el Reino Unido por la Raspberry Pi Foundation, con el objetivo de estimular la enseñanza de informática en las escuelas.
-
-* El __software es de código abierto__, siendo su sistema operativo oficial una __versión adaptada de Debian, denominada Raspbian__, aunque permite usar otros sistemas operativos [@wiki2019raspberry].
-
-##
-
-* Se conocen múltiples aplicaciones, como PC de escritorio, *media center*, vídeo-vigilancia, domótica, configuración de VPN, servidor web, de archivos, de impresión, de juegos, sismógrafo, GNSS, entre otras.
-
-
-![](img/rpi.png)
-
-##
-
-![](img/unidad-gnss-partes-basicas.jpeg)
-
-##
-
-![](img/20190805_153403.jpg)
-
-
-##
-
-![](img/20190801_171036.jpg)
-
-##
-
-![](rtk-ovni.jpg)
-
-##
-
-![](img/20191028_102223.jpg)
-
-##
-
-![](img/20191012_181905.jpg)
-
-##
-
-![](img/20191102_100053_burbuja.jpg)
-
-## [rtk-r-wrappers](https://github.com/geofis/rtk-r-wrappers)
-
-![](img/rtk-r-wrappers.png)
 
 # RESULTADOS
 
-## Muestras
+## Solución PPP para la base (NRCAN)
 
-* Se tomaron muestras con __cuatro configuraciones de equipamiento distintas__ en la medida que se adquiría nuevo equipamiento. Cada configuración corresponde a una posición distinta:
+![](img/nrcan-cors-techo-01.jpg)
 
-    * Sin ensamblar.
-    * Unidad ensamblada.
-    * Trípode + plomada.
-    * Trípode + palo.
+## Solución PPP para la base (NRCAN)
 
-* Se tomaron __muestras cada dos o tres días__ las distintas configuraciones.
+![](img/nrcan-cors-techo-02.jpg)
 
-* Cada muestra se compone de colectas diarias de al menos __1500 épocas__ cada una.
+## Comparación soluciones NRCAN y AUSPOS
 
-##
+![](img/diferencias-nrcan-auspos.jpg)
 
-* Se obtuvieron soluciones __fijas RTK__, pero se posprocesaron (__PPK__) los datos brutos usando la estación de referencia RDSD para mejorar la precisión.
+## Animación de  GENERACIÓN DE FIX CON RTKBASE Y CON BASHRTKSTATION
 
-* Se analizaron sólo las __soluciones fijas__. 
+## DEMOS: LETRAS UASD (ESTUDIANTES), PUNTOS EN UASD, DAP EN ÁRBOLES, LA PLAYA DE NAJAYO
 
-* Todo el proceso se realizó en __coordenadas ECEF__.
+## Campus UASD
 
-##
+## ![](img/campus-uasd-01.jpg)
 
-|Modo                                       |  Fechas     | N|              Foto                      |
-|:------------------------------------------|:-----------:|-:|:-------------------------------------: |
-|Sin ensamblar                              |1/ago-11/sep |36| ![](img/20190801_171036_peq.jpg)       |
-|Unidad ensamblada                          |12/sep-11/oct|23| ![](img/rtk-ovni_peq.jpg)              |
-|Trípode + plomada                          |12/oct-23-oct| 6| ![](img/20191012_181905_peq.jpg)       |
-|Trípode + palo                             |31/oct-  -   |>5|![](img/20191102_100053_burbuja_peq.jpg)|
+## ![](img/campus-uasd-02.jpg)
+
+## ![](img/campus-uasd-estudiantes.jpg){width=70%}
+
+## ![](img/campus-uasd-letras.gif)
+
+## ![](img/diametro-a-altura-de-antena.png)
+
+## Playa Najayo
 
 
-## Muestras en detalle. Soluciones fijas
 
-![](img/gif-muestras-diarias.gif)
+## Obras
 
-##
+![](img/foso-mahatma-gandhi-contreras.gif)
 
-![](img/map_disassembled.png)
 
-##
+## Mensura
 
-![](img/map_assembled.png)
+![](img/finca-terraqua.png)
 
-##
+## Hundimiento en César Nicolás Penson
 
-![](img/map_tripod_plummet.png)
+![](img/hundimiento-penson.png)
 
-##
-
-![](img/map_tripod_pole.png)
-
-## 
-
-![](img/gif-muestras-promediadas.gif)
-
-## Distancias planimétricas
-
-```{r, echo = FALSE, warning=FALSE, message=FALSE}
-require(sf)
-require(tidyverse)
-fixedsol_m_sf <- st_read('data/trabajo02_promedio_posiciones.gpkg', quiet=T)
-names(fixedsol_m_sf)[3] <- 'geometry'
-fixedsoldf <- fixedsol_m_sf %>%
-  mutate(X=unlist(map(fixedsol_m_sf$geometry,1)), Y=unlist(map(fixedsol_m_sf$geometry,2))) %>%
-  st_drop_geometry() %>% dplyr::select(mode, X,Y) %>% 
-  as.data.frame()
-fixedsoldf %>%
-  as.data.frame() %>%
-  remove_rownames %>%
-  column_to_rownames('mode') %>% dist()
-```
-
-<img src="img/map_context_06.png" height="80%" width="80%">
-
-## Mediciones planimétricas con cinta métrica
-
-```{r, echo=T}
-#                  Disassembled   Assembled   Tripod + plummet
-# Assembled
-# Tripod + plummet
-# Tripod + pole           5.854                          0.095
-```
-<img src="img/distancia-planimetrica-plummet-pole.jpg" width="100%">
-
-## Distribución de las observaciones
-
-<img src="img/qqnorms.png" width="150%">
-
-## Errores estándar por medio de *bootstrap*
-
-```{r, echo = T}
-# mode                  X      Y     Z
-# Disassembled     0.0010 0.0011 0.002
-# Assembled        0.0006 0.0009 0.006
-# Tripod + plummet 0.0046 0.0054    NA
-# Tripod + pole    0.0035 0.0051 0.011
-```
-
-## Desviaciones estándar
-
-<img src="img/media_centrada_por_dia_barras_de_error.png"  width="150%">
+## URL de rtk2go. SERVICIO PÚBLICO
 
 # DISCUSIÓN Y PERSPECTIVAS
 
 ## Discusión
 
-* Los resultados obtenidos __son precisos__, con errores estándar bastante bajos, de orden centimétrico incluso milimétrico.
+- Los resultados obtenidos __son precisos__, con errores estándar bastante bajos, de orden centimétrico incluso milimétrico.
 
-* Mediciones con __cinta métrica__ confirmaron la precisión de las posiciones.
+- Las aplicaciones profesionales están demostradas.
 
-* Se necesitan mediciones con __equipamiento alterno__ para evaluar exactitud, aunque los resultados preliminares son prometedores.
+- Su uso en la enseñanza es una de las aplicaciones idóneas
 
-* Las aplicaciones para __monitoreo de movimiento de la estructura__ (por ejemplo,  por subsidencia), al menos para desplazamientos de desarrollo lento y de __orden centimétrico__, son perfectamente viables.
+- Las aplicaciones para __monitoreo de movimiento de la estructura__ (por ejemplo,  por subsidencia), al menos para desplazamientos de desarrollo lento y de __orden centimétrico__, son perfectamente viables.
 
-## DInSAR 2016-2018
+## Perspectivas. ¿Qué estoy haciendo actualmente con este equipo?
 
-<img src="img/insar_2016_2018_displacement.png" width="150%">
-Verde: ~10-20 mm de subsidencia <br>
-Rojo: ~10-30 mm de elevación
+* Dando __capacitaciones__ básicas. Puertas abiertas a toda persona que dispuesta a trabajar en Linux, con software libre y en consola de comandos.
 
-## Componente vertical CORS RDSD
+* Monitoreando de __deslizamientos__.
 
-<img src="img/descomposicion_y_gam.png" width="150%">
-Izquierda, GAM. Derecha: Descomposición serie temporal <br>
-Subsidencia capturada en ambos análisis
+* Caracterizando __granulometría de carga gruesa__ superficial de lechos de río/llanura de inundación mediante UAV.
+
+* Monitoreando __deformación en SD__, con énfasis en la UASD.
 
 ## Perspectivas
 
-* Realizar Precise point positioning (__PPP__).
-
-* Configurar un segundo receptor para el __tandem *base*+*rover*__, con TX/RX de correcciones por radiofrecuencia
-
-* Monitorear de __deslizamientos__.
-
-* Modelizar __granulometría de carga gruesa__ superficial mediante UAV.
-
-* Monitorear __subsidencia__ urbana.
-
-* Armar unidad __multibanda__.
 
 # REFERENCIAS
 
