@@ -7,7 +7,7 @@ output:
     title-slide-attributes:
       data-background-image: img/fondo.jpg
       data-background-size: cover
-    # template: defaultmodificada.html
+    template: defaultmodificada.html
     transition: fade
 bibliography: biblio.bib
 csl: apa.csl
@@ -64,7 +64,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 * Dado que las coordenadas se generan para un espacio tridimensional, el proceso necesita de __al menos 4 satélites__.
 
-<img src="img/GPS-Trilateration.png" width="35%">
+<img src="img/GPS-Trilateration.png" width="30%">
 <span style="font-size:60%;">Tomado de @gisgeography2019trilateration</span>
 
 
@@ -141,9 +141,9 @@ knitr::opts_chunk$set(echo = FALSE)
 
 - Desde entonces me concentré en:
 
-    - Constuir una __solución integral__, que incluyera __base y rover ambos de doble frecuencia__.
+    - Construir una __solución integral__, que incluyera __base y rover ambos de doble frecuencia__.
     
-    - Basándome en RTKLIB, crear el __scripts de operación básicos__, así como mejorar/adaptar software de terceros.
+    - Crear __scripts de operación básicos__, así como mejorar/adaptar software de terceros, basándome sobre todo en RTKLIB.
 
 # MATERIALES Y MÉTODOS
 
@@ -166,12 +166,9 @@ knitr::opts_chunk$set(echo = FALSE)
 | Base o rover, los imprescindibles: receptor, RPi, antena.                     |    US$340   |
 | Adaptador de corriente, palo, trípode, conectores, cables, carcasa, batería   |    US$240   |
 
-<section style="font-size:60%;text-align: left;">
+<span style="font-size:60%; float:left;">- No se incluyen fletes.</span>
 
-- No se incluyen fletes.
-
-- Para una base fija tipo CORS, se deben añadir los costes del __soporte de hierro__ (~US$40) y __el cable__ (el valor dependerá del calibre elegido y la longitud del mismo). Otros complementos deseables son un __tribrach__ (base nivelante), __protección contra rayos__ y una estación meteorológica.
-</section>
+<span style="font-size:60%; float:left;">- Para una base fija tipo CORS, se deben añadir los costes del __soporte de hierro__ (~US$40) y __el cable__ (el valor dependerá del calibre elegido y la longitud del mismo). Otros complementos deseables son un __tribrach__ (base nivelante), __protección contra rayos__ y una estación meteorológica.</span>
 
 ## ¿Qué es una Raspberry Pi?
 
@@ -196,15 +193,36 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## BashRTKStation
 
+* Colección de scripts [BashRTKStation](https://github.com/geofis/BashRTKStation/)
 
+![](img/bash-rtk-station.jpg){width=50%}
+![](img/showcase2.gif)
+
+- https://github.com/geofis/BashRTKStation/
 
 ## RTKBase
 
-## ![](img/centipede.jpg)
+* Fork propio de RTKBase para usarlo:
+    * __En la base__.
+    * También __en el rover__, pues tiene capacidad de envíar correcciones RTCM3 a receptor.
+
+## ![](img/rtkbase-fork.jpg){width=75%}
+
+- https://github.com/geofis/rtkbase
+
+## ![](img/rtkbase.jpg)
+
+## Centipede
+
+![](img/centipede.jpg)
+
+- https://centipede.fr/
 
 ## RTKMisc
 
+![](img/rtkmisc.jpg){width=80%}
 
+- https://github.com/geofis/RTKMisc
 
 # RESULTADOS
 
@@ -220,10 +238,6 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ![](img/diferencias-nrcan-auspos.jpg)
 
-## Animación de  GENERACIÓN DE FIX CON RTKBASE Y CON BASHRTKSTATION
-
-## DEMOS: LETRAS UASD (ESTUDIANTES), PUNTOS EN UASD, DAP EN ÁRBOLES, LA PLAYA DE NAJAYO
-
 ## Campus UASD
 
 ## ![](img/campus-uasd-01.jpg)
@@ -234,11 +248,15 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## ![](img/campus-uasd-letras.gif)
 
-## ![](img/diametro-a-altura-de-antena.png)
+## ![](img/diametro-a-altura-de-antena.png){width=80%}
 
 ## Playa Najayo
 
+![](img/playa-najayo-gcp-mapa-barras-error.jpg)
 
+## Playa Najayo
+
+![](img/playa-najayo-perfil-playa.gif)
 
 ## Obras
 
@@ -253,7 +271,12 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ![](img/hundimiento-penson.png)
 
-## URL de rtk2go. SERVICIO PÚBLICO
+## rtk2go. Servicio público
+
+![](img/rtk2go.jpg){width=55%}
+
+<small>- URL: rtk2go:2101, Mountpoint: geofis_ovni</small>
+<small>- Status: [http://rtk2go.com:2101/SNIP::MOUNTPT?NAME=geofis_ovni](http://rtk2go.com:2101/SNIP::MOUNTPT?NAME=geofis_ovni)</small>
 
 # DISCUSIÓN Y PERSPECTIVAS
 
@@ -261,15 +284,15 @@ knitr::opts_chunk$set(echo = FALSE)
 
 - Los resultados obtenidos __son precisos__, con errores estándar bastante bajos, de orden centimétrico incluso milimétrico.
 
-- Las aplicaciones profesionales están demostradas.
+- Las aplicaciones profesionales y su uso en producción __son de sobra viables__.
 
-- Su uso en la enseñanza es una de las aplicaciones idóneas
+- Su __uso en la enseñanza__ es una de las aplicaciones idóneas.
 
 - Las aplicaciones para __monitoreo de movimiento de la estructura__ (por ejemplo,  por subsidencia), al menos para desplazamientos de desarrollo lento y de __orden centimétrico__, son perfectamente viables.
 
 ## Perspectivas. ¿Qué estoy haciendo actualmente con este equipo?
 
-* Dando __capacitaciones__ básicas. Puertas abiertas a toda persona que dispuesta a trabajar en Linux, con software libre y en consola de comandos.
+* Dando __capacitaciones__ básicas. __Apoyo personas abiertas a Linux, software libre y consola de comandos__.
 
 * Monitoreando de __deslizamientos__.
 
@@ -277,9 +300,6 @@ knitr::opts_chunk$set(echo = FALSE)
 
 * Monitoreando __deformación en SD__, con énfasis en la UASD.
 
-## Perspectivas
-
-
 # REFERENCIAS
 
-## 
+<section style="font-size: 24px; text-align: left;">
