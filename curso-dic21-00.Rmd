@@ -18,23 +18,25 @@ editor_options:
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-# Autopresentación
+# PREÁMBULO
 
-- Incluye nombre, carrera que estudias o profesión, municipio de residencia, expectativas y cualquier otro detalle que desees incluir.
+## Autopresentación
 
-# Guión del curso:
+- Incluye nombre, carrera que estudias o profesión, municipio de residencia, expectativas y cualquier otro detalle que quieras agregar.
 
-- Motivación: precisión para aplicaciones usando software libre y proyecto DIY (esta presentación)
+## Programa del curso
 
-- Práctica 1. Familiarización con los recursos informáticos, trilateración
+- [Motivación: precisión para aplicaciones usando software libre y proyecto DIY (esta presentación)](https://geofis.github.io/rtk-para-todos/curso-dic21-00.html)
 
-- Teoría 1. GNSS: vistazo general, conceptos, sistemas/plataformas satelitales
+- [Práctica 1. Familiarización con los recursos informáticos](https://geofis.github.io/rtk-para-todos/curso-dic21-p1.html)
 
-- Práctica 2. PPK con datos existentes
+- [Teoría 1. GNSS: vistazo general, conceptos, sistemas/plataformas satelitales](https://geofis.github.io/rtk-para-todos/curso-dic21-t1.html)
 
-- Teoría 2. GNSS: fuentes de error, resolución de errores
+- [Práctica 2. Trilateración. PPK con datos existentes](https://geofis.github.io/rtk-para-todos/curso-dic21-p2.html)
 
-- Práctica 3. Colecta de datos de campo, RTK y PPK
+- [Teoría 2. GNSS: fuentes de error, resolución de errores](https://geofis.github.io/rtk-para-todos/curso-dic21-t2.html)
+
+- [Práctica 3. Colecta de datos de campo, RTK y PPK](https://geofis.github.io/rtk-para-todos/curso-dic21-p3.html)
 
 ## Rescatando la lista de los reyes magos del primer día
 
@@ -44,11 +46,23 @@ knitr::opts_chunk$set(echo = FALSE)
 
 - Tomar datos crudos o hacer solución fija en el vértice de la Plaza de la Bandera.
 
+## Rescatando la lista de los reyes magos del primer día
+
 - Hacer flujo de trabajo PPK completo con RTKLIB.
 
 - Montar un receptor DIY / como configurarlo.
 
 - Hacer PPP.
+
+- ¿Qué se puede rescatar de aquí? Debemos decidir.
+
+## Recomendaciones
+
+- Tumba el miedo a la consola de comandos.
+
+- Esta expresión no te va a ayudar: "da error". Comienza a practicar desde ya, y cámbiala por: "Obtuve un error que me parece tiene que ver con <inserta aquí tu sospecha>, el cual dice lo siguiente: <inserta aquí tu mensaje de error favorito>. Intenté resolverlo por mi cuenta mediante <inserta aquí las soluciones que implementaste>, pero no tuve éxito".
+
+- Bájale todo lo que puedas a las expectativas. La única fortaleza de este curso no es su contenido, sino la libertad. Te adelanto que el contenido será mínimo, pero al menos conocerás soluciones libres para aprender el enorme volumen de temas restantes.
 
 # ¿QUÉ ES RTK? ¿POR QUÉ UN PROYECTO DIY? ¿POR QUÉ SOFTWARE LIBRE?
 

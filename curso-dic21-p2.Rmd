@@ -1,6 +1,6 @@
 ---
 title: Curso "Introducción a los sistemas GNSS-RTK de bajo costo"
-subtitle: "Práctica 2. PPK con datos existentes"
+subtitle: "Práctica 2. Trilateración. PPK con datos existentes"
 author: José Ramón Martínez Batlle
 date: UASD, Diciembre, 2021 <br> Santo Domingo, República Dominicana <br> https://geofis.github.io/rtk-para-todos/
 output:

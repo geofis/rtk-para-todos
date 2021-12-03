@@ -20,7 +20,6 @@ editor_options:
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-
 # Preparación
 
 ## Lista de control de software
@@ -33,11 +32,15 @@ knitr::opts_chunk$set(echo = FALSE)
 
 - [u-center](https://www.u-blox.com/sites/default/files/u-centersetup_v21.09.zip)
 
-- Cliente [X2Go](https://wiki.x2go.org/doku.php/doc:installation:x2goclient), si vas a usar el servidor facilitado por mí.
+- Cliente [X2Go](https://wiki.x2go.org/doku.php/doc:installation:x2goclient), sólo si vas a usar el servidor facilitado por mí.
 
 - [Git](https://git-scm.com/)
 
 - [Docker](https://docs.docker.com/desktop/windows/install/)
+
+## Recursos
+
+- [Carpeta compartida](https://drive.google.com/drive/folders/1Wzh-53nPQJjnm-643DmcuuA8LmMHLYC2?usp=sharing)
 
 ## Acceso a servidor
 
