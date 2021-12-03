@@ -1,0 +1,78 @@
+---
+title: Curso "Introducción a los sistemas GNSS-RTK de bajo costo"
+subtitle: "Práctica 1. Familiarización con los recursos, trilateración"
+author: José Ramón Martínez Batlle
+date: UASD, Diciembre, 2021 <br> Santo Domingo, República Dominicana <br> https://geofis.github.io/rtk-para-todos/
+output:
+  revealjs::revealjs_presentation:
+    title-slide-attributes:
+      data-background-image: img/fondo.jpg
+      data-background-size: cover
+    template: defaultmodificada.html
+    transition: fade
+bibliography: biblio.bib
+csl: apa.csl
+editor_options:
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+# Preparación
+
+## Lista de control de software
+
+- [Binarios de RTKLIB_bin](https://github.com/tomojitakasu/RTKLIB_bin/tree/rtklib_2.4.3)
+
+- [QGIS](https://qgis.org/es/site/forusers/download.html)
+
+- [Google Earth](https://support.google.com/earth/answer/21955?hl=es)
+
+- [u-center](https://www.u-blox.com/sites/default/files/u-centersetup_v21.09.zip)
+
+- Cliente [X2Go](https://wiki.x2go.org/doku.php/doc:installation:x2goclient), si vas a usar el servidor facilitado por mí.
+
+- [Git](https://git-scm.com/)
+
+- [Docker](https://docs.docker.com/desktop/windows/install/)
+
+## Acceso a servidor
+
+- Si lo requirieras, dispondrás de usuario/clave para acceder al servidor con el software requerido.
+
+# RTKLIB
+
+## ![](img/rtklib-rotulos.png)
+
+## RTKLIB (CLI, GUI)
+
+- Lanzadera de aplicaciones (RTKLAUNCH)
+
+- Convertir archivos (convbin, RTKCONV)
+
+- Explorar observaciones (RTKPLOT)
+
+- Ver soluciones de archivo y *real-time* (RTKPLOT)
+
+- Activar un streaming (str2str, SVRSTR)
+
+- Ver aplicaciones de navegación (rtkrcv, RTKNAVI)
+
+- Realizar PPK (rnx2rtkp, RTKPOST)
+
+- Generar KML (pos2kml)
+
+# QGIS
+
+- Abrir soluciones RTK
+
+# u-center
+
+- Abrir streaming
+
+# REFERENCIAS
+
+<section style="font-size: 24px; text-align: left;">

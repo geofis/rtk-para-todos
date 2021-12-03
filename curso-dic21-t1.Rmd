@@ -1,0 +1,28 @@
+---
+title: Curso "Introducción a los sistemas GNSS-RTK de bajo costo"
+subtitle: "Teoría 1. GNSS: vistazo general, conceptos, sistemas/plataformas satelitales"
+author: José Ramón Martínez Batlle
+date: UASD, Diciembre, 2021 <br> Santo Domingo, República Dominicana <br> https://geofis.github.io/rtk-para-todos/
+output:
+  revealjs::revealjs_presentation:
+    title-slide-attributes:
+      data-background-image: img/fondo.jpg
+      data-background-size: cover
+    template: defaultmodificada.html
+    transition: fade
+bibliography: biblio.bib
+csl: apa.csl
+editor_options:
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+
+
+# REFERENCIAS
+
+<section style="font-size: 24px; text-align: left;">

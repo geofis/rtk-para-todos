@@ -1,0 +1,304 @@
+---
+title: Curso "Introducción a los sistemas GNSS-RTK de bajo costo"
+date: "Motivación: precisión para aplicaciones usando software libre y proyecto DIY <br> José Ramón Martínez Batlle, UASD <br> Diciembre, 2021 <br> Santo Domingo, República Dominicana <br> https://geofis.github.io/rtk-para-todos/"
+output:
+  revealjs::revealjs_presentation:
+    title-slide-attributes:
+      data-background-image: img/fondo.jpg
+      data-background-size: cover
+    template: defaultmodificada.html
+    transition: fade
+bibliography: biblio.bib
+csl: apa.csl
+editor_options:
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# Autopresentación
+
+- Incluye nombre, carrera que estudias o profesión, municipio de residencia, expectativas y cualquier otro detalle que desees incluir.
+
+# Guión del curso:
+
+- Motivación: precisión para aplicaciones usando software libre y proyecto DIY (esta presentación)
+
+- Práctica 1. Familiarización con los recursos informáticos, trilateración
+
+- Teoría 1. GNSS: vistazo general, conceptos, sistemas/plataformas satelitales
+
+- Práctica 2. PPK con datos existentes
+
+- Teoría 2. GNSS: fuentes de error, resolución de errores
+
+- Práctica 3. Colecta de datos de campo, RTK y PPK
+
+## Rescatando la lista de los reyes magos del primer día
+
+- Visitar una parcela preferiblemente ya medida previamente por otro método/persona. Hacer mensura, comparar.
+
+- Colectar datos en terreno campo.
+
+- Tomar datos crudos o hacer solución fija en el vértice de la Plaza de la Bandera.
+
+- Hacer flujo de trabajo PPK completo con RTKLIB.
+
+- Montar un receptor DIY / como configurarlo.
+
+- Hacer PPP.
+
+# ¿QUÉ ES RTK? ¿POR QUÉ UN PROYECTO DIY? ¿POR QUÉ SOFTWARE LIBRE?
+
+## ¿Qué es RTK? Vistazo general
+
+* Siglas de *real-time kinematic*, es una técnica de __navegación satelital global__, que utiliza la __fase de la onda portadora__ (a diferencia de la técnica convencional, basada en códigos pseudoaleatorios de baja frecuencia) enviada por satélites de posicionamiento, tales como GPS, GLONASS, Galileo y BeiDou, para calcular, con __precisión centimétrica__, la distancia entre una estación base de coordenadas conocidas y una estación exploradora o *rover*.
+
+## ![](img/rtk-base-rover.jpg){width=90%}
+
+Según @novatel2015introduction
+
+## Comparación entre técnica estándar y basada en onda portadora
+
+|     |     |     |
+|:---:|:---:|:---:|
+|     | Basada en códigos pseudoaleatorios (estándar) | Posicionamiento preciso (basada en onda portadora) |
+| Observaciones | Pseudorango (de códigos)| Onda portadora + pseudorango |
+| Precio de receptor | Baratos, ~US\$100 | __Muy caros ~US\$10,000-40,000__ |
+| Exactitud | 3 m (H), 5 m (V) | __5 mm (H) 1 cm (V) (modo estático)__ |
+| Aplicaciones | Navegación marítima, búsqueda y rescate | Topografía, mensura, cartografía de alta precisión |
+<small>Los costos son para equipos funcionales listos para usarse, "apenas sacados de su empaque"</small>
+
+## Limitaciones globales
+
+- Alto __costo de equipos__ listos para usar.
+
+- Predominio de __soluciones__ de software privativas.
+
+- Red de CORS pública de __poca densidad__.
+
+- __Redes privadas__ existentes y densas, aunque de __costos__ elevados.
+
+## Proyecto DIY ("hazlo tu mismo")
+
+- Se trata de un proyecto autofinanciado, que constituye un __soporte esencial__ para otras múltiple investigaciones en marcha.
+
+- Por lo tanto, su importancia radica en la capacidad de soportar __múltiples aplicaciones en geografía y mensura (entre otras áreas) a bajísimo costo y con soluciones libres, SIN SOFTWARE PRIVATIVO NI HARDWARE COSTOSO.__
+
+## Fabricantes de receptores GNSS con capacidad RTK
+
+- Trimble, Leica, Topcon, NovAtel, JAVAD, ...
+
+- u-blox, Septentrio, Skytraq, ComNav Technology ...
+
+## ![](img/trimble-used.png){width=85%}
+
+## ![](img/ardusimple-mouser.jpg)
+
+## Soluciones de software libre / código abierto
+
+- La mayor parte de los equipos anteriores usan software privativo creado por el fabricante. Por lo tanto, con dicho software no es posible:
+
+  - Estudiar ni mejorar las soluciones.
+  - Compartir el código con colegas.
+
+- En cambio, con software libre/código abierto, sí es posible.
+
+![](img/rtkrcv-sample-code.jpg){width=60%}
+
+## Aplicaciones
+
+* Monitoreo de __deslizamientos, fallas__.
+
+* Mensura.
+
+* Fotogrametría con __UAV__.
+
+* Construcción, monitoreo de __edificaciones y estructuras__ (puentes)
+
+* __Agricultura__ de precisión.
+
+* Detección de __tsunamis__ por boyas GNSS.
+
+* Sistemas de __transporte__, vehículos autónomos.
+
+* Sistemas de cartografía __móviles__ (Street View).
+
+* ...
+
+## ¿Cuándo comencé?
+
+- En __2018__ construí una solución monobanda.
+
+- Dicha solución, aunque útil para determinadas aplicaciones, fallaba en determinados ambientes para __converger eficientemente__ (AR).
+
+![](img/mosaico-evolucion-monobanda.jpg)
+
+## ¿Cuándo comencé?
+
+- Desde entonces me concentré en:
+
+    - Construir una __solución integral__, que incluyera __base y rover ambos de doble frecuencia__.
+    
+    - Crear __scripts de operación básicos__, así como mejorar/adaptar software de terceros, basándome sobre todo en RTKLIB.
+
+# MATERIALES Y MÉTODOS
+
+## Hardware
+
+## ![](img/armando-hardware.jpg)
+
+## ![](img/diagrama.png)
+
+## ![](img/IMG_20211008_181425.jpg)
+
+## ![](img/IMG_20211104_203437.jpg)
+
+## ![](img/20211009_150705.jpg)
+
+## <span style="font-size:60%;">Partes adquiridas para equipo de colecta (Financiamiento: "SALARIO-CyT")</span>
+
+| Parte                                                                         | Costo aprox.|
+|-------------------------------------------------------------------------------|------------:|
+| Base o rover, los imprescindibles: receptor, RPi, antena.                     |    US$340   |
+| Adaptador de corriente, palo, trípode, conectores, cables, carcasa, batería   |    US$240   |
+
+<span style="font-size:60%; float:left;">- No se incluyen fletes.</span>
+
+<span style="font-size:60%; float:left;">- Para una base fija tipo CORS, se deben añadir los costes del __soporte de hierro__ (~US$40) y __el cable__ (el valor dependerá del calibre elegido y la longitud del mismo). Otros complementos deseables son un __tribrach__ (base nivelante), __protección contra rayos__ y una estación meteorológica.</span>
+
+## ¿Qué es una Raspberry Pi?
+
+![](img/rpi.png){width=35%}
+![](img/rpi-zero-2-w.jpg){width=35%}
+
+## Software
+
+## RTKLIB
+
+* Biblioteca [RTKLIB](http://www.rtklib.com/) (primera versión, 2007), por Tomoji Takasu [@takasu2011rtklib; @takasu2009development]
+
+![](img/rtklib.png)
+
+## RTKLIB
+
+![](img/rtklib-github.png)
+
+## RTKLIB
+
+![](img/rtklib-rotulos.png)
+
+## BashRTKStation
+
+* Colección de scripts [BashRTKStation](https://github.com/geofis/BashRTKStation/)
+
+![](img/bash-rtk-station.jpg){width=50%}
+![](img/showcase2.gif)
+
+- https://github.com/geofis/BashRTKStation/
+
+## RTKBase
+
+* Fork propio de RTKBase para usarlo:
+    * __En la base__.
+    * También __en el rover__, pues tiene capacidad de envíar correcciones RTCM3 a receptor.
+
+## ![](img/rtkbase-fork.jpg){width=75%}
+
+- https://github.com/geofis/rtkbase
+
+## ![](img/rtkbase.jpg)
+
+## Centipede
+
+![](img/centipede.jpg)
+
+- https://centipede.fr/
+
+## RTKMisc
+
+![](img/rtkmisc.jpg){width=80%}
+
+- https://github.com/geofis/RTKMisc
+
+# RESULTADOS
+
+## Solución PPP para la base (NRCAN)
+
+![](img/nrcan-cors-techo-01.jpg)
+
+## Solución PPP para la base (NRCAN)
+
+![](img/nrcan-cors-techo-02.jpg)
+
+## Comparación soluciones NRCAN y AUSPOS
+
+![](img/diferencias-nrcan-auspos.jpg)
+
+## Campus UASD
+
+## ![](img/campus-uasd-01.jpg)
+
+## ![](img/campus-uasd-02.jpg)
+
+## ![](img/campus-uasd-estudiantes.jpg){width=70%}
+
+## ![](img/campus-uasd-letras.gif)
+
+## ![](img/diametro-a-altura-de-antena.png){width=80%}
+
+## Playa Najayo
+
+![](img/playa-najayo-gcp-mapa-barras-error.jpg)
+
+## Playa Najayo
+
+![](img/playa-najayo-perfil-playa.gif)
+
+## Obras
+
+![](img/foso-mahatma-gandhi-contreras.gif)
+
+
+## Mensura
+
+![](img/finca-terraqua.png)
+
+## Hundimiento en César Nicolás Penson
+
+![](img/hundimiento-penson.png)
+
+## rtk2go. Servicio público
+
+![](img/rtk2go.jpg){width=55%}
+
+<small>- URL: rtk2go:2101, Mountpoint: geofis_ovni</small>
+<small>- Status: [http://rtk2go.com:2101/SNIP::MOUNTPT?NAME=geofis_ovni](http://rtk2go.com:2101/SNIP::MOUNTPT?NAME=geofis_ovni)</small>
+
+# DISCUSIÓN Y PERSPECTIVAS
+
+## Discusión
+
+- Los resultados obtenidos __son precisos__, con errores estándar bastante bajos, de orden centimétrico incluso milimétrico.
+
+- Las aplicaciones profesionales y su uso en producción __son de sobra viables__.
+
+- Su __uso en la enseñanza__ es una de las aplicaciones idóneas.
+
+- Las aplicaciones para __monitoreo de movimiento de la estructura__ (por ejemplo,  por subsidencia), al menos para desplazamientos de desarrollo lento y de __orden centimétrico__, son perfectamente viables.
+
+## Perspectivas. ¿Qué estoy haciendo actualmente con este equipo?
+
+* Dando __capacitaciones__ básicas. __Apoyo personas abiertas a Linux, software libre y consola de comandos__.
+
+* Monitoreando de __deslizamientos__.
+
+* Caracterizando __granulometría de carga gruesa__ superficial de lechos de río/llanura de inundación mediante UAV.
+
+* Monitoreando __deformación en SD__, con énfasis en la UASD.
+
+# REFERENCIAS
+
+<section style="font-size: 24px; text-align: left;">
