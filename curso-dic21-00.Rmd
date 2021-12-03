@@ -1,6 +1,6 @@
 ---
 title: Curso "Introducción a los sistemas GNSS-RTK de bajo costo"
-date: "Motivación: precisión para aplicaciones usando software libre y proyecto DIY <br> José Ramón Martínez Batlle, UASD <br> Diciembre, 2021 <br> Santo Domingo, República Dominicana <br> https://geofis.github.io/rtk-para-todos/"
+date: "Motivación: precisión para aplicaciones usando software libre y proyecto DIY <br> José Ramón Martínez Batlle, UASD <br> Diciembre, 2021 <br> Santo Domingo, República Dominicana <br> https://geofis.github.io/rtk-para-todos/curso-dic21-00.html"
 output:
   revealjs::revealjs_presentation:
     title-slide-attributes:
