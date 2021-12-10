@@ -1,0 +1,94 @@
+---
+title: Curso "Introducción a los sistemas GNSS-RTK de bajo costo"
+date: "Mensajes clave para participantes <br> José Ramón Martínez Batlle, UASD <br> Diciembre, 2021 <br> Santo Domingo, República Dominicana <br> https://geofis.github.io/rtk-para-todos/curso-dic21-00-mensajes-clave-para-participantes.html"
+output:
+  revealjs::revealjs_presentation:
+    title-slide-attributes:
+      data-background-image: img/fondo.jpg
+      data-background-size: cover
+    template: defaultmodificada.html
+    transition: fade
+bibliography: biblio.bib
+csl: apa.csl
+editor_options:
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# Mensajes clave
+
+Estos son los mensajes clave del "Curso Introductorio sobre GNSS-RTK de bajo costo".
+
+## Horario
+
+Viernes 3, 10 y 17 de diciembre, y miércoles 22 de diciembre, de 3 a 5 pm.
+
+## Programas requeridos
+
+- __RTKLIB__. La aplicación principal que usarás será RTKLIB. Esta corre tanto en Windows como en Linux (imagino que MacOS también). En Windows, RTKLIB se usa corriendo ejecutables precompilados. En Linux, dichos ejecutables se pueden ejecutar mediante Wine. Aunque la versión original de RTKLIB es la de Tomoji Takasu, nosotros usaremos el fork RTKBLIB demo5 de Tim Everett.
+
+    - [Web oficial de descarga de RTKLIB demo5](https://github.com/rtklibexplorer/RTKLIB/releases/download/b34d/demo5_b34d.zip)
+    
+    - Descomprime el contenido del ZIP en una carpeta; cuando quieras ejecutar un programa, harás clic sobre su ejecutable ".exe"
+
+##
+
+- __QGIS__. Te servirá para ver resultados sobre un mapa/imagen.
+
+    - [Web oficial de descarga de QGIS](https://qgis.org/es/site/forusers/download.html)
+    
+    - [Tutorial de instalación](https://www.youtube.com/watch?v=FFf3_P6-4Ag)
+
+##
+  
+- __Git__. Se usa para control de versiones y descargar repos fácilmente.
+
+    - [Web oficial de descarga de Git](https://git-scm.com/)
+    
+    - [Tutorial de instalación](https://www.youtube.com/watch?v=dbEqN7EY-Mg)
+
+##
+
+- __Docker__. Sirve para usar software "contenerizado".
+
+    - [Web oficial de descarga de Docker para Windows](https://docs.docker.com/desktop/windows/install/)
+    - [Tutorial de instalación](https://www.youtube.com/watch?v=5nX8U8Fz5S0)
+
+##
+
+- __X2Go (opcional)__. Si no puedes instalar las aplicaciones en tu PC, usa un servidor Linux temporal que configuré para este curso (lo destruiré cuando terminemos). Si quieres tener una cuenta sólo tienes que pedírmela. Para acceder al servidor necesitarás el cliente de una aplicación denominada X2Go.
+
+    - [La versión para Windows se puede descargar desde aquí](https://wiki.x2go.org/doku.php/doc:installation:x2goclient)
+
+##
+
+- __GoogleEarth__.
+
+    - [Web oficial de descarga de GoogleEarth para Windows](https://support.google.com/earth/answer/21955?hl=es)
+
+##
+
+- __u-center__. Aplicación de evaluación de u-blox. Al igual que RTKLIB, simplemente descargas un .exe que ejecutas directamente en tu PC. Hay dos versiones, la 1 y la 2. Conozco la 1.
+
+    - [Web oficial de descarga de u-center para Windows](https://www.u-blox.com/sites/default/files/u-centersetup_v21.09.zip)
+
+## Nota sobre instalaciones
+
+Dado que mi conocimiento de Windows se ha achicado en los últimos años, no creo que pueda ofrecer soporte sobre cómo instalar estas aplicaciones en dicho sistema operativo, pero en Linux sí que podré. De todas formas, las aplicaciones para Windows suelen instalarse sin problemas.
+
+## Punto de reunión, carpeta del curso
+
+- [Vínculo Zoom del curso](https://us02web.zoom.us/j/89068687736?pwd=TkRBWjlyOHUreG1CY3BmZk9TZk1ZZz09)
+
+- [Vínculo de la carpeta del curso](https://drive.google.com/drive/folders/1Wzh-53nPQJjnm-643DmcuuA8LmMHLYC2?usp=sharing). Por el momento, esta carpeta sólo tiene las subcarpetas "videos-sesiones" y "ubx", y el archivo "rtknavi.conf".
+
+## Workflows
+
+- RTK: si deseas replicar el workflow RTK que realicé en vivo el primer día de clases, sólo tienes que abrir la aplicación RTKNAVI y configurarla con el archivo rtknavi.conf que se encuentra en la carpeta del curso. Dejé encendido un receptor u-blox que hace las veces de rover, y la base también está encendida, como de costumbre.
+
+# REFERENCIAS
+
+<section style="font-size: 24px; text-align: left;">

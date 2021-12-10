@@ -1,6 +1,6 @@
 ---
 title: Curso "Introducción a los sistemas GNSS-RTK de bajo costo"
-subtitle: "Práctica 1. Familiarización con los recursos, trilateración"
+subtitle: "Práctica 1. Familiarización con los recursos, demo de RTK"
 author: José Ramón Martínez Batlle
 date: UASD, Diciembre, 2021 <br> Santo Domingo, República Dominicana <br> https://geofis.github.io/rtk-para-todos/
 output:
@@ -24,7 +24,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Lista de control de software
 
-- [Binarios de RTKLIB_bin](https://github.com/tomojitakasu/RTKLIB_bin/tree/rtklib_2.4.3)
+- [Binarios de RTKLIB_bin](https://github.com/rtklibexplorer/RTKLIB/releases/download/b34d/demo5_b34d.zip)
 
 - [QGIS](https://qgis.org/es/site/forusers/download.html)
 
@@ -62,7 +62,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 - Activar un streaming (str2str, SVRSTR)
 
-- Ver aplicaciones de navegación (rtkrcv, RTKNAVI)
+- Navegación en tiempo real (rtkrcv, RTKNAVI)
 
 - Realizar PPK (rnx2rtkp, RTKPOST)
 
