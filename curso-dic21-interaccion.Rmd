@@ -1,0 +1,73 @@
+---
+title: Curso "Introducción a los sistemas GNSS-RTK de bajo costo"
+subtitle: "Interacción"
+author: José Ramón Martínez Batlle
+date: UASD, Diciembre, 2021 <br> Santo Domingo, República Dominicana <br> https://geofis.github.io/rtk-para-todos/curso-dic21-interaccion.html
+output:
+  revealjs::revealjs_presentation:
+    title-slide-attributes:
+      data-background-image: img/fondo.jpg
+      data-background-size: cover
+    template: defaultmodificada.html
+    transition: fade
+bibliography: biblio.bib
+csl: apa.csl
+editor_options:
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# Interacción
+
+##
+
+- Sesión preguntas y respuestas sobre demostraciones de flujos de trabajo (mías o de participantes).
+
+- ¿Con qué completamos este curso?
+   - __Armar un equipo desde cero. Opción: instalaciones y cámara de GUAKIA__
+   - Se planteó una especie de "desafío": ¿quién se anima a armar su equipo propio?
+   - __Listas de componentes, precios, URLs__
+
+## Listas de componentes, URLs
+
+|Proveedor|Info|URL|
+|:--------|:-|:-|
+|TouchRTKStation|Lista de componentes monobanda |https://github.com/geofis/TouchRTKStation|
+|Presentación de diapositivas "Revisitando RTK para todos"|Lista de componentes multibanda|https://geofis.github.io/rtk-para-todos/#/section-3|
+|Amazon|Diversos componentes, entre ellos, los receptores|https://www.amazon.com/|
+|ebay|Diversos componentes, entre ellos, los receptores|https://www.ebay.com/|
+
+## Listas de componentes, URLs
+
+|Proveedor|Info|URL|
+|:--------|:-|:-|
+|AliExpress|Diversos componentes, electrónica, antenas|https://www.aliexpress.com/|
+|SparkFun|Receptores, anternas, electrónica|https://www.sparkfun.com/|
+|Mouser|Receptores, anternas, electrónica|https://www.mouser.com/|
+|Digi-Key|Receptores, anternas, electrónica|https://www.digikey.com/|
+
+## Listas de componentes, URLs
+
+|Proveedor|Info|URL|
+|:--------|:-|:-|
+|PiShop|Raspberry Pi|https://www.pishop.us/|
+|Más distribuidores de Raspberry Pi|RPi|https://www.raspberrypi.com/|
+|Emlid|Receptores|https://emlid.com/|
+|GNSS OEM|Receptores, antenas|http://gnss.store/|
+
+## Salida de campo
+
+
+- Lugar elegido:
+  - __Kilómetro "cero", Parque Independencia del SD__
+  - Se barajaron otras opciones: Parques Mirador o Iberoamérica (no muy accesible en transporte público), Plaza de la Bandera (dificultad de movilizar personas en el lugar).
+  - Fecha/hora de salida:
+    - Fin de semana: 8 de enero de 2022, de 9 a 13
+
+# REFERENCIAS
+
+
+<section style="font-size: 24px; text-align: left;">
