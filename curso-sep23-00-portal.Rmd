@@ -1,0 +1,49 @@
+---
+title: "Introducción a los receptores GNSS de bajo costo"
+subtitle: "Portal del curso"
+author: "José Ramón Martínez Batlle <br> (Tw: \\@geografiard; GitHub: \\@geofis)"
+date: "Universidad Autónoma de Santo Domingo <br> 4-8 de septiembre, 2023 <br> Santo Domingo, República Dominicana <br> <small> https://geofis.github.io/rtk-para-todos/curso-sep23-00-portal.html </small>"
+output:
+  revealjs::revealjs_presentation:
+    title-slide-attributes:
+      data-background-image: img/fondo.jpg
+      data-background-size: cover
+    template: defaultmodificada.html
+    transition: fade
+bibliography: biblio.bib
+csl: apa.csl
+editor_options:
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# Portal del curso
+
+![](img/qr_portal.png)
+
+# Programa del curso
+
+- [Teoría 1. Sistemas GNSS (1). Software de código abierto, proyectos DIY, aplicaciones en el mundo real](https://geofis.github.io/rtk-para-todos/curso-sep23-t1.html)
+
+- [Práctica 1. Familiarización con los recursos informáticos y acercamiento al hardware libre](https://geofis.github.io/rtk-para-todos/curso-sep23-p1.html)
+
+- [Teoría 2. Sistemas GNSS (2). Vistazo general, conceptos, sistemas/plataformas satelitales](https://geofis.github.io/rtk-para-todos/curso-sep23-t2.html)
+
+- [Práctica 2. Armando un receptor DIY (1). Puesta a punto de Raspberry Pi, instalación de SO, herramientas.](https://geofis.github.io/rtk-para-todos/curso-sep23-p2.html)
+
+##
+
+- [Teoría 3. Fuentes de error, resolución de errores](https://geofis.github.io/rtk-para-todos/curso-sep23-t3.html)
+
+- [Práctica 3. Armando un receptor DIY (2). Configuración del receptor, conexión a Raspberry Pi.](https://geofis.github.io/rtk-para-todos/curso-sep23-p3.html)
+
+- [Teoría 4. Procesamiento de datos GNSS (1)](https://geofis.github.io/rtk-para-todos/curso-sep23-t4.html)
+
+- [Práctica 4. Colecta de datos de campo, RTK](https://geofis.github.io/rtk-para-todos/curso-sep23-p4.html)
+
+- [Teoría 5. Procesamiento de datos GNSS (2)](https://geofis.github.io/rtk-para-todos/curso-sep23-t5.html)
+
+- [Práctica 5. Posproceso de datos de campo, PPK](https://geofis.github.io/rtk-para-todos/curso-sep23-p5.html)

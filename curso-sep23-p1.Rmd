@@ -1,0 +1,93 @@
+---
+title: "Introducción a los receptores GNSS de bajo costo"
+subtitle: "<small> Familiarización con los recursos informáticos y acercamiento al hardware libre </small>"
+author: "José Ramón Martínez Batlle <br> (Tw: \\@geografiard; GitHub: \\@geofis)"
+date: "Universidad Autónoma de Santo Domingo <br> 4-8 de septiembre, 2023 <br> Santo Domingo, República Dominicana <br> <small> https://geofis.github.io/rtk-para-todos/curso-sep23-p1.html </small>"
+output:
+  revealjs::revealjs_presentation:
+    title-slide-attributes:
+      data-background-image: img/fondo.jpg
+      data-background-size: cover
+    template: defaultmodificada.html
+    transition: fade
+bibliography: biblio.bib
+csl: apa.csl
+editor_options:
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# Preparación
+
+## Resultados esperados
+
+Al terminar esta práctica habrás logrado:
+
+1. Instalar y correr de forma demostrativa programas RTKLIB y QGIS [mas info en la sección "Software requerido" del documento conceptual del curso](ref/nota_conceptual_programa.pdf).
+
+2. Convertir un archivo de formato u-blox a RINEX.
+
+3. Abrir y explorar un archivo RINEX.
+
+4. Abrir y explorar un archivo de soluciones.
+
+## ![](img/rtklib-rotulos.png)
+
+## Recursos
+
+- [Carpeta compartida](https://drive.google.com/drive/folders/1fI7_VMtbBA8_iIDjBFtrtxs5RshwagIa?usp=drive_link)
+
+# Ejercicios
+
+## Correr RTKLIB y QGIS
+
+1. Sigue las instrucciones en el aula para instalar (si aún no lo has hecho) y correr el paquete QGIS y la lanzadera (RTKLAUNCH) de RTKLIB.
+
+2. En el caso de QGIS, bastaría con probar que abre correctamente, sin errores. Si hubiese algún error de complementos faltantes u otros, compártelos en el aula.
+
+3. En el caso de RTKLIB, a partir de la lanzadera (RTKLAUNCH), abre al menos las siguientes aplicaciones (entre paréntesis te incluye la aplicación "hermana" de consola de comandos):
+
+- RTKCONV. Sirve para convertir archivos (convbin).
+
+- RTKPLOT. Sirve para explorar observaciones y soluciones de archivo y *real-time*.
+
+- SVRSTR. Sirve para activar streamings (str2str).
+
+- RTKNAVI. Sirve para la navegación en tiempo real (rtkrcv).
+
+- RTKPOST. Sirve para realizar PPK (rnx2rtkp).
+
+
+## Convertir un archivo de formato u-blox a RINEX.
+
+1. Sigue las instrucciones de aula para convertir un archivo de extensión `.ubx` (formato binario y propietario u-blox) a formato RINEX usando la aplicación RTKCONV (`convbin`). Los archivos de formato `.ubx` se encuentran en la carpeta compartida, subcarpeta `ubx`. Elige uno cualquiera de los que comienza por `20211127...`. Se generarán varios archivos con el mismo nombre raíz, pero con extensiones distintas. Entre los archivos que se generarán estarán tanto las observaciones crudas como los mensajes de navegación. No te preocupes ahora por los detalles, intenta lograr la conversión.
+
+**Nota: en Windows, dentro del gestor de archivos o en opciones globales (bueno, yo francamente no sé dónde se hace eso ahora), necesitarás hacer visibles las extensiones de los archivos para poder visualizar el nombre completo.**
+
+2. Alternativamente, si te manejas con la consola de comandos, prueba hacer lo mismo con `convbin`
+
+## Abrir y explorar un archivo RINEX
+
+1. Sigue las instrucciones de aula para abrir tu archivo RINEX de observaciones generado, normalmente tiene extensión `.obs` o extensión `.23O` (el `23` es por el año), en un procesador de texto ("Bloc de Notas" en Windows; `vim` o `nano` en Linux).
+
+2. Ábrelo también con RTKPLOT de RTKLIB.
+
+## Abrir un archivo de soluciones
+
+1. Sigue las instrucciones de aula para abrir dos archivos de soluciones con un procesador de texto. En la carpeta compartida, localiza la subcarpeta `soluciones`, verás dos subcarpetas más, y dentro de cada una hay un archivo con extensión `.pos` (pero no el que termina en `*_events.pos`). Ábrelos con el procesador de texto de tu preferencia, y examínalos.
+
+2. Respóndete a la pregunta de qué diferencia hay entre ambos archivos `.pos`.
+
+3. Abre los mismos archivos, pero RTKPLOT, para navegar gráficamente por las soluciones.
+
+## Abr un archivo de soluciones en QGIS.
+
+1. Sigues las instrucciones de aula para abrir los dos archivos de soluciones con QGIS, considerándolos como "texto delimitado".
+
+
+# REFERENCIAS
+
+<section style="font-size: 24px; text-align: left;">
