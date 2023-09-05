@@ -20,13 +20,18 @@ editor_options:
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
+# Portal del curso
+
+![](img/qr_portal.png)
+<small>https://geofis.github.io/rtk-para-todos/curso-sep23-00-portal.html</small>
+
 # Preparación
 
 ## Resultados esperados
 
 Al terminar esta práctica habrás logrado:
 
-1. Instalar y correr de forma demostrativa programas RTKLIB y QGIS [mas info en la sección "Software requerido" del documento conceptual del curso](ref/nota_conceptual_programa.pdf).
+1. Instalar y correr de forma demostrativa programas RTKLIB y QGIS. Tienes más información sobre la instalación en la sección "Software requerido" del [documento conceptual del curso](ref/nota_conceptual_programa.pdf).
 
 2. Convertir un archivo de formato u-blox a RINEX.
 
@@ -36,17 +41,30 @@ Al terminar esta práctica habrás logrado:
 
 ## ![](img/rtklib-rotulos.png)
 
-## Recursos
+## ¿Qué necesitarás?
 
-- [Carpeta compartida](https://drive.google.com/drive/folders/1fI7_VMtbBA8_iIDjBFtrtxs5RshwagIa?usp=drive_link)
+- [Carpeta compartida](https://drive.google.com/drive/folders/1fI7_VMtbBA8_iIDjBFtrtxs5RshwagIa?usp=drive_link). Esta carpeta contiene:
+
+    - Archivos de ejemplo que usarás en las prácticas.
+    
+    - Vídeos de las sesiones teóricas (subcarpeta `videos-sesiones`).
+    
+    - **Vídeos con las instrucciones para realizar los ejercicios** (subcarpeta `videos-sesiones`).
+
+- PC.
+
+- Aplicaciones, RTKLIB y QGIS.
+
 
 # Ejercicios
 
-## Correr RTKLIB y QGIS
+## Ejercicio 1. Correr RTKLIB y QGIS
 
-1. Sigue las instrucciones en el aula para instalar (si aún no lo has hecho) y correr el paquete QGIS y la lanzadera (RTKLAUNCH) de RTKLIB.
+1. Sigue las instrucciones en el aula para instalar (si aún no lo has hecho) y corre el programa QGIS y la lanzadera de RTKLIB (RTKLAUNCH).
 
 2. En el caso de QGIS, bastaría con probar que abre correctamente, sin errores. Si hubiese algún error de complementos faltantes u otros, compártelos en el aula.
+
+## 
 
 3. En el caso de RTKLIB, a partir de la lanzadera (RTKLAUNCH), abre al menos las siguientes aplicaciones (entre paréntesis te incluye la aplicación "hermana" de consola de comandos):
 
@@ -60,22 +78,43 @@ Al terminar esta práctica habrás logrado:
 
 - RTKPOST. Sirve para realizar PPK (rnx2rtkp).
 
+## Ejercicio 2. Convertir un archivo de formato u-blox a RINEX.
 
-## Convertir un archivo de formato u-blox a RINEX.
-
-1. Sigue las instrucciones de aula para convertir un archivo de extensión `.ubx` (formato binario y propietario u-blox) a formato RINEX usando la aplicación RTKCONV (`convbin`). Los archivos de formato `.ubx` se encuentran en la carpeta compartida, subcarpeta `ubx`. Elige uno cualquiera de los que comienza por `20211127...`. Se generarán varios archivos con el mismo nombre raíz, pero con extensiones distintas. Entre los archivos que se generarán estarán tanto las observaciones crudas como los mensajes de navegación. No te preocupes ahora por los detalles, intenta lograr la conversión.
+1. Sigue las instrucciones de aula para convertir un archivo de extensión `.ubx` (formato binario y propietario u-blox) a formato RINEX usando la aplicación RTKCONV (`convbin`). Los archivos de formato `.ubx` se encuentran en la carpeta compartida, subcarpeta `ubx`. Elige uno cualquiera de los que comienza por `20211127...`.
 
 **Nota: en Windows, dentro del gestor de archivos o en opciones globales (bueno, yo francamente no sé dónde se hace eso ahora), necesitarás hacer visibles las extensiones de los archivos para poder visualizar el nombre completo.**
 
-2. Alternativamente, si te manejas con la consola de comandos, prueba hacer lo mismo con `convbin`
+##
 
-## Abrir y explorar un archivo RINEX
+2. Elige en la caja de archivo de entrada, elige el archivo `.ubx`.
+
+3. En la caja de directorio de salida, elige un lugar para alojar los archivos RINEX de salida. Por defecto, será la misma localización del de entrada.
+
+4. Marca el cotejo a la izquierda de las primera y segunda cajas.
+
+##
+
+5. Configura las opciones que necesites presionando el botón `Options`.
+
+6. Presiona `Convert`. Se generarán varios archivos con el mismo nombre raíz, pero con extensiones distintas. Entre los archivos que se generarán estarán tanto las observaciones crudas como los mensajes de navegación. No te preocupes ahora por los detalles, intenta lograr la conversión.
+
+## 
+
+7. Alternativamente, el proceso anterior se puede hacer con la consola de comandos, usando la aplicación `convbin.exe` en Windows y `convbin` en Linux, usando la sentencia (opciones por defecto):
+
+```{bash, eval=F, echo=T}
+convbin.exe 20211127-073113-ubx-nmea-data.ubx #En Windows
+
+convbin 20211127-073113-ubx-nmea-data.ubx #En Linux
+```
+
+## Ejercicio 3. Abrir y explorar un archivo RINEX
 
 1. Sigue las instrucciones de aula para abrir tu archivo RINEX de observaciones generado, normalmente tiene extensión `.obs` o extensión `.23O` (el `23` es por el año), en un procesador de texto ("Bloc de Notas" en Windows; `vim` o `nano` en Linux).
 
 2. Ábrelo también con RTKPLOT de RTKLIB.
 
-## Abrir un archivo de soluciones
+## Ejercicio 4. Abrir un archivo de soluciones
 
 1. Sigue las instrucciones de aula para abrir dos archivos de soluciones con un procesador de texto. En la carpeta compartida, localiza la subcarpeta `soluciones`, verás dos subcarpetas más, y dentro de cada una hay un archivo con extensión `.pos` (pero no el que termina en `*_events.pos`). Ábrelos con el procesador de texto de tu preferencia, y examínalos.
 
@@ -83,9 +122,9 @@ Al terminar esta práctica habrás logrado:
 
 3. Abre los mismos archivos, pero RTKPLOT, para navegar gráficamente por las soluciones.
 
-## Abr un archivo de soluciones en QGIS.
+## Ejercicio 5. Abrir un archivo de soluciones en QGIS.
 
-1. Sigues las instrucciones de aula para abrir los dos archivos de soluciones con QGIS, considerándolos como "texto delimitado".
+1. Sigue las instrucciones de aula para abrir los dos archivos de soluciones con QGIS, considerándolos como "texto delimitado".
 
 
 # REFERENCIAS

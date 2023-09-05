@@ -25,6 +25,7 @@ knitr::opts_chunk$set(echo = FALSE)
 ## Portal del curso
 
 ![](img/qr_portal.png)
+<small>https://geofis.github.io/rtk-para-todos/curso-sep23-00-portal.html</small>
 
 ## Autopresentación (a las 4 pm, en el aula FC-101)
 
@@ -46,9 +47,9 @@ knitr::opts_chunk$set(echo = FALSE)
 
 - El recurso más eficiente disponible son los sistemas de navegación por satélite.
 
-##
-
 - Las versiones con cobertura global de estos sistemas, se denominan sistemas de navegación global por satélite o "GNSS" (siglas de Global Navigation Satellite Systems)
+
+##
 
 - Un GNSS es un sistema que permite (pero no sólo) determinar la posición de un objeto en la Tierra utilizando señales emitidas por satélites en órbita. GPS, GLONASS, Galileo y BeiDou, son ejemplos de sistemas GNSS.
 
@@ -79,10 +80,11 @@ knitr::opts_chunk$set(echo = FALSE)
 
 # Software libre, software de código abierto
 
-![](img/free-libre-open-source-software.jpg)
+![](img/free-libre-open-source-software.jpg){width=70%}
+
 Según [Slava Todavchich, Moqod.com](https://moqod-software.medium.com/understanding-open-source-and-free-software-licensing-c0fa600106c9)
 
-# HARDWARE LIBRE
+# Hardware libre
 
 - Son componentes físicos de computadoras y otros dispositivos que están diseñados de manera abierta y pública
 
@@ -93,8 +95,6 @@ Según [Slava Todavchich, Moqod.com](https://moqod-software.medium.com/understan
 - Al igual que en el caso del software libre, el objetivo es fomentar la colaboración, la innovación y la libertad de los usuarios para adaptar el hardware a sus necesidades específicas.
 
 - Los receptores GNSS, aunque sean de bajo costo, no son necesariamente libres.
-
-##
 
 ![](img/gosh.jpg)
 

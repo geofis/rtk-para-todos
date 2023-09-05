@@ -1,0 +1,135 @@
+---
+title: "Introducción a los receptores GNSS de bajo costo"
+subtitle: "<small> Sistemas GNSS (2).  Vistazo general, conceptos, sistemas/plataformas satelitales</small>"
+author: "José Ramón Martínez Batlle <br> (Tw: \\@geografiard; GitHub: \\@geofis)"
+date: "Universidad Autónoma de Santo Domingo <br> 4-8 de septiembre, 2023 <br> Santo Domingo, República Dominicana <br> <small> https://geofis.github.io/rtk-para-todos/curso-sep23-t1.html </small>"
+output:
+  revealjs::revealjs_presentation:
+    title-slide-attributes:
+      data-background-image: img/fondo.jpg
+      data-background-size: cover
+    template: defaultmodificada.html
+    transition: fade
+bibliography: biblio.bib
+csl: apa.csl
+editor_options:
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# Vistazo general
+
+## Tus coordenadas
+
+- Te encuentras en el punto $a$ del espacio $xyz$, con coordenadas $x_a,y_a,z_a$ ...
+
+- ... y conoces las distancias ($d_1,d_2,d_3$) que te separan de tres puntos conocidos, e igualmente conoces las posiciones de dichos puntos $(x_1,y_1,z_1),...,(x_4,y_4,z_4)$.
+
+- Pues resolviendo un sencillo sistema de ecuaciones, podrás determinar tu posición $x_a,y_a,z_a$ en el espacio $xyz$.
+
+## ![](img/ilustracion-ejemplo-en-aula.jpg){width=80%}
+
+Según @novatel2015introduction
+
+## Tus coordenadas
+
+- Hasta aquí todo bien, pero pero ...
+
+- ¿Y no que se necesitan 4 satélites para obtener una coordenada?
+
+Veamos esquemáticamente con un ejemplo bidimensional:
+
+## ![](img/distancia-a-primer-satelite.jpg)
+
+Según @novatel2015introduction
+
+## ![](img/distancia-a-segundo-satelite.jpg)
+
+Según @novatel2015introduction
+
+## ![](img/interseccion-calculada-real.jpg){width=70%}
+
+Según @novatel2015introduction
+
+## ![](img/distancia-a-tercer-satelite-no-interseccion.jpg){width=140%}
+
+Según @novatel2015introduction
+
+## ![](img/convergencia.jpg)
+
+Según @novatel2015introduction
+
+# Evolución
+
+![](img/gps-evolution.png){width=80%}
+<small>Fuente: https://gssc.esa.int/navipedia/index.php/GPS_Space_Segment</small>
+
+# Segmentos
+
+## ![](img/segmentos.jpg)
+
+Según @novatel2015introduction.
+
+## ¿GPS? ¿GNSS?
+
+- GPS = *Global Positioning System*, sistema de posicionamiento global, es una constelación actualmente.
+
+- GNSS = *Global Navigation Satellite System*, sistema de navegación global por satélite. Múltiples constelaciones existen hoy.
+
+## Constelaciones
+
+- GPS. EUA, desde 70s, 27 satélites, ámbito global.
+
+- GLONASS=Global Navigation Satellite System (ГЛОНАСС=ГЛОбальная НАвигационная Спутниковая Система). Rusia, desde 80s, 24 satélites, ámbito global.
+
+- Galileo=sistema europeo de radionavegación y posicionamiento por satélite. Unión Europea, desde 2011, 24 satélites operativos, ámbito global.
+
+- BeiDou=sistema de navegación por satélite (BDS=北斗卫星导航系统). China, desde 2000, 35 satélites en órbita, ámbito global.
+
+- IRNSS, QZSS. Constelaciones india y japonesa de ámbito local
+
+## Segmento espacial
+
+- Cada constelación tiene un número determinado de satélites, normalmente a más de 20,000 km sobre la superficie de la Tierra (nivel del mar como referencia).
+
+- Cada satélite transmite mensajes con, por lo menos, los siguientes mensajes:  identidad (número/código identificador), hora precisa, órbita y estado.
+
+## ![](img/orbitas-gnss.jpg)
+
+## Segmento de control
+
+- Red de estaciones en tierra de los siguientes tipos:
+
+    - Control maestro (ajuste de órbita; para GPS hay dos, una primaria y otra de respaldo).
+    
+    - Subida de información (4 estaciones en GPS).
+    
+    - Monitoreo (monitorean la señal y estado; 16 estaciones en GPS).
+
+## Segmento usuario
+
+- Consiste en el personal y equipamiento para recibir y procesar la señal de las constelaciones GNSS.
+
+- Es el segmento masivo.
+
+# Señales GNSSS
+
+## Frecuencias
+
+- En torno a los 1.5 GHz (gigahercios), 1500 millones de ciclos (1.5 millardos de ciclos).
+
+```{r, echo=T}
+wl <- 29979245800/1500000000
+cat('Longitud de onda = ', wl, 'cm')
+```
+
+- Son ondas con frecuencias mayores a las de la radiodifusión, pero inferiores a las del microondas.
+
+
+# REFERENCIAS
+
+
+<section style="font-size: 24px; text-align: left;">

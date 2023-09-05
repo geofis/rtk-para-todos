@@ -23,6 +23,7 @@ knitr::opts_chunk$set(echo = FALSE)
 # Portal del curso
 
 ![](img/qr_portal.png)
+<small>https://geofis.github.io/rtk-para-todos/curso-sep23-00-portal.html</small>
 
 # Programa del curso
 
