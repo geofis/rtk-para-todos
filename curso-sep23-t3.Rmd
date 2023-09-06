@@ -1,0 +1,85 @@
+---
+title: "Introducción a los receptores GNSS de bajo costo"
+subtitle: "<small> Sistemas GNSS (2). Fuentes de error en sistemas GNSS, posicionamiento preciso, correcciones diferenciales, GNSS-RTK, resolución de errores</small>"
+author: "José Ramón Martínez Batlle <br> (Tw: \\@geografiard; GitHub: \\@geofis)"
+date: "Universidad Autónoma de Santo Domingo <br> 4-8 de septiembre, 2023 <br> Santo Domingo, República Dominicana <br> <small> https://geofis.github.io/rtk-para-todos/curso-sep23-t1.html </small>"
+output:
+  revealjs::revealjs_presentation:
+    title-slide-attributes:
+      data-background-image: img/fondo.jpg
+      data-background-size: cover
+    template: defaultmodificada.html
+    transition: fade
+bibliography: biblio.bib
+csl: apa.csl
+editor_options:
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+# Fuentes de error
+
+- Errores ionosféricos y troposféricos: Variaciones en la ionosfera y troposfera que afectan la velocidad de propagación de la señal GNSS, resultando en errores de posición.
+
+- Errores de órbita: Imprecisión en el conocimiento de la posición exacta del satélite en su órbita, lo que lleva a errores en el cálculo de la distancia entre el satélite y el receptor.
+
+- Errores de reloj del satélite: Pequeñas desviaciones en el tiempo emitido por el reloj a bordo del satélite, afectando la precisión en la medición de la distancia entre el satélite y el receptor.
+
+
+# Posicionamiento preciso
+
+## Técnicas Diferenciales
+
+- **RTK (Real-Time Kinematic)**: Utiliza una estación base y un receptor móvil para ofrecer correcciones en tiempo real y alcanzar una alta precisión de posicionamiento en centímetros.
+  
+- **DGNSS (Differential GNSS)**: Utiliza una estación base para calcular las diferencias de corrección que se aplican al receptor móvil, mejorando la precisión en relación con el GNSS estándar.
+
+- **VRS (Virtual Reference Station)**: Genera una estación de referencia virtual cerca del receptor móvil para ofrecer correcciones diferenciales más precisas.
+
+- **NRTK (Network RTK)**: Usa una red de estaciones base para generar modelos de corrección más precisos que se transmiten al receptor en tiempo real.
+
+- **SBAS (Satellite-Based Augmentation System)**: Utiliza satélites geoestacionarios para transmitir correcciones y confiabilidad de la información de otros satélites GNSS a nivel continental.
+
+- **GBAS (Ground-Based Augmentation System)**: Similar al SBAS pero centrado en una área más pequeña, como un aeropuerto, usando estaciones terrestres locales para transmitir correcciones.
+
+## Técnicas No Diferenciales
+
+- **PPP (Precise Point Positioning)**: Utiliza datos de múltiples satélites y modelos precisos para lograr una alta precisión sin necesidad de una estación base cercana.
+
+- **PPP-RTK (Precise Point Positioning Real-Time Kinematic)**: Híbrido entre PPP y RTK, ofrece alta precisión en tiempo real sin una estación base cercana.
+
+- **Multi-GNSS y Multi-frecuencia**: Utiliza señales de múltiples constelaciones y frecuencias para mejorar la precisión y robustez.
+
+- **INS/GNSS Fusion**: Combina datos de sistemas de navegación inercial y GNSS para mantener la precisión en entornos con señal GNSS débil o nula.
+
+- **L-Band Corrections**: Servicios comerciales que ofrecen correcciones globales de alta precisión a través de satélites de comunicación en la banda L.
+
+## ¿Qué es RTK? Vistazo general
+
+* Siglas de *real-time kinematic*, es una técnica de __navegación satelital global__, que utiliza la __fase de la onda portadora__ (a diferencia de la técnica convencional, basada en códigos pseudoaleatorios de baja frecuencia) enviada por satélites de posicionamiento, tales como GPS, GLONASS, Galileo y BeiDou, para calcular, con __precisión centimétrica__, la distancia entre una estación base de coordenadas conocidas y una estación exploradora o *rover*.
+
+* Veamos el vídeo de 2021, ["Introducción a GNSS-RTK..."](https://www.youtube.com/watch?v=UpI1wDkYSgY&list=PLDcT2n8UzsCRwLvmM2AfdNjK39RzRHTmZ&index=1&t=1911s), específicamente el segmento línea de tiempo entre 31:51 y 1:06:16.
+
+## ![](img/rtk-base-rover.jpg){width=90%}
+
+Según @novatel2015introduction
+
+
+# ¿Por qué más frecuencias ayudan mejoran el posicionamiento preciso?
+
+- Porque de un mismo sector de la atmósfera se tienen observaciones en dos frecuencias distintas, las cuales podemos relacionar por correlación para resolver la ambigüedad del entero.
+
+- Precisión Mejorada: La utilización de dos frecuencias permite corregir errores ionosféricos, aumentando la precisión en el posicionamiento.
+
+- Convergencia Rápida: Al usar dos frecuencias, el tiempo necesario para obtener una solución RTK fiable se reduce.
+
+- Robustez: Mayor resistencia a interferencias y a pérdidas temporales de señal, haciendo que la solución sea más estable.
+
+
+# REFERENCIAS
+
+<section style="font-size: 24px; text-align: left;">
