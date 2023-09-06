@@ -25,26 +25,33 @@ knitr::opts_chunk$set(echo = FALSE)
 ![](img/qr_portal.png)
 <small>https://geofis.github.io/rtk-para-todos/curso-sep23-00-portal.html</small>
 
-# Programa del curso
+
+# Recursos
+
+- [Nota conceptual/programa del curso](https://github.com/geofis/rtk-para-todos/blob/gh-pages/ref/nota_conceptual_programa.pdf)
+
+- [Carpeta compartida](https://drive.google.com/drive/folders/1fI7_VMtbBA8_iIDjBFtrtxs5RshwagIa?usp=drive_link). Contiene archivos de ejemplo y vídeos de las sesiones de clase.
+
+# Diapositivas de las sesiones teóricas
 
 - [Teoría 1. Sistemas GNSS (1). Software de código abierto, proyectos DIY, aplicaciones en el mundo real](https://geofis.github.io/rtk-para-todos/curso-sep23-t1.html)
 
-- [Práctica 1. Familiarización con los recursos informáticos y acercamiento al hardware libre](https://geofis.github.io/rtk-para-todos/curso-sep23-p1.html)
-
 - [Teoría 2. Sistemas GNSS (2). Vistazo general, conceptos, sistemas/plataformas satelitales](https://geofis.github.io/rtk-para-todos/curso-sep23-t2.html)
 
-- [Práctica 2. Armando un receptor DIY (1). Puesta a punto de Raspberry Pi, instalación de SO, herramientas.](https://geofis.github.io/rtk-para-todos/curso-sep23-p2.html)
-
-##
-
-- [Teoría 3. Fuentes de error, resolución de errores](https://geofis.github.io/rtk-para-todos/curso-sep23-t3.html)
-
-- [Práctica 3. Armando un receptor DIY (2). Configuración del receptor, conexión a Raspberry Pi.](https://geofis.github.io/rtk-para-todos/curso-sep23-p3.html)
+- [Teoría 3. Corrección diferencial, fuentes de error, resolución de errores](https://geofis.github.io/rtk-para-todos/curso-sep23-t3.html)
 
 - [Teoría 4. Procesamiento de datos GNSS (1)](https://geofis.github.io/rtk-para-todos/curso-sep23-t4.html)
 
-- [Práctica 4. Colecta de datos de campo, RTK](https://geofis.github.io/rtk-para-todos/curso-sep23-p4.html)
-
 - [Teoría 5. Procesamiento de datos GNSS (2)](https://geofis.github.io/rtk-para-todos/curso-sep23-t5.html)
+
+# Prácticas
+
+- [Práctica 1. Familiarización con los recursos informáticos y acercamiento al hardware libre](https://geofis.github.io/rtk-para-todos/curso-sep23-p1.html)
+
+- [Práctica 2. Armando un receptor DIY (1). Puesta a punto de Raspberry Pi, instalación de SO, herramientas.](https://geofis.github.io/rtk-para-todos/curso-sep23-p2.html)
+
+- [Práctica 3. Armando un receptor DIY (2). Configuración del receptor, conexión a Raspberry Pi.](https://geofis.github.io/rtk-para-todos/curso-sep23-p3.html)
+
+- [Práctica 4. Colecta de datos de campo, RTK](https://geofis.github.io/rtk-para-todos/curso-sep23-p4.html)
 
 - [Práctica 5. Posproceso de datos de campo, PPK](https://geofis.github.io/rtk-para-todos/curso-sep23-p5.html)
